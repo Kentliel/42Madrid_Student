@@ -1,28 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kcarrero <kcarrero@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/08 17:04:06 by kcarrero          #+#    #+#             */
-/*   Updated: 2025/04/09 17:38:41 by kcarrero         ###   ########.fr       */
+/*   Created: 2025/04/09 17:03:40 by kcarrero          #+#    #+#             */
+/*   Updated: 2025/04/09 17:25:56 by kcarrero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "libft.h"
 
-# include <unistd.h>
-# include <stddef.h>
+void	*ft_memcpy(void *dest, const void *src, size_t n)
+{
+	char			*dep;
+	const char		*sp;
+	int				i;
 
-int		ft_isalpha(int n);
-int		ft_isdigit(int n);
-int		ft_isalnum(int n);
-int		ft_isprint(int n);
-int		ft_strlen(const char *s);
-void	*ft_memset(void *s, int c, size_t n);
-void	ft_bzero(void *s, size_t n);
-void	*ft_memcpy(void *dest, const void *src, size_t n);
-
-#endif
+	dep = dest;
+	sp = src;
+	i = 0;
+	while (n != 0)
+	{
+		dep[i] = sp[i];
+		i++;
+		n--;
+	}
+	return (dest);
+}
