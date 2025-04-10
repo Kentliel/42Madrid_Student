@@ -6,7 +6,7 @@
 /*   By: kcarrero <kcarrero@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 14:20:47 by kcarrero          #+#    #+#             */
-/*   Updated: 2025/04/09 16:03:19 by kcarrero         ###   ########.fr       */
+/*   Updated: 2025/04/10 14:52:49 by kcarrero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,14 @@
 
 void	ft_bzero(void *s, size_t n)
 {
+	unsigned char	*sp;
 	int	i;
 
 	i = 0;
+	sp = (unsigned char *)s;
 	while (n != 0)
 	{
-		s[i] = '\0';
+		sp[i] = '\0';
 		i++;
 		n--;
 	}
