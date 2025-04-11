@@ -6,7 +6,7 @@
 /*   By: kcarrero <kcarrero@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 15:30:04 by kcarrero          #+#    #+#             */
-/*   Updated: 2025/04/08 17:56:58 by kcarrero         ###   ########.fr       */
+/*   Updated: 2025/04/10 22:27:31 by kcarrero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static int	ft_islower(unsigned char c)
 	return (c >= 'a' && c <= 'z');
 }
 
-int	ft_isallpha(int n)
+int	ft_isalpha(int n)
 {
 	unsigned char	c;
 

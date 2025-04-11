@@ -6,7 +6,7 @@
 /*   By: kcarrero <kcarrero@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 18:07:50 by kcarrero          #+#    #+#             */
-/*   Updated: 2025/04/08 18:15:58 by kcarrero         ###   ########.fr       */
+/*   Updated: 2025/04/10 21:33:46 by kcarrero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static int	ft_ascii(unsigned char c)
 {
-	return (c >= 0 && c <= 127);
+	return (c <= 127);
 }
 
 int	ft_isascii(int n)
