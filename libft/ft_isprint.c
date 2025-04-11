@@ -6,7 +6,7 @@
 /*   By: kcarrero <kcarrero@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 18:35:15 by kcarrero          #+#    #+#             */
-/*   Updated: 2025/04/10 22:47:46 by kcarrero         ###   ########.fr       */
+/*   Updated: 2025/04/11 13:06:07 by kcarrero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,13 @@ int	ft_isprint(int n)
 {
 	unsigned char	c;
 
-	c = (unsigned char)n;
-	return (ft_printascii(c));
+	if (n < 0 || n > 255)
+	{
+		return (0);
+	}
+	else
+	{
+		c = (unsigned char)n;
+		return (ft_printascii(c));
+	}
 }

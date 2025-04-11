@@ -1,38 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kcarrero <kcarrero@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/08 15:30:04 by kcarrero          #+#    #+#             */
-/*   Updated: 2025/04/11 13:01:21 by kcarrero         ###   ########.fr       */
+/*   Created: 2025/04/11 15:54:16 by kcarrero          #+#    #+#             */
+/*   Updated: 2025/04/11 16:29:12 by kcarrero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_isupper(unsigned char c)
+size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 {
-	return (c >= 'A' && c <= 'Z');
-}
+	size_t	i;
+	size_t	len;
 
-static int	ft_islower(unsigned char c)
-{
-	return (c >= 'a' && c <= 'z');
-}
-
-int	ft_isalpha(int n)
-{
-	unsigned char	c;
-
-	if (n < 0 || n > 255)
+	i = 0;
+	if (size == 0)
+		return (ft_strlen(src));
+	while ((i < size) && (src[i] != '\0'))
 	{
-		return (0);
+		dest[i] = src[i];
+		i++;
 	}
-	else
-	{
-		c = (unsigned char)n;
-		return (ft_isupper(c) || ft_islower(c));
-	}
+	dest[i] = '\0';
+	len = (size_t)ft_strlen(src);
+	return (len);
 }
