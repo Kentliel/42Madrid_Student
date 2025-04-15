@@ -6,7 +6,7 @@
 /*   By: kcarrero <kcarrero@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 19:28:04 by kcarrero          #+#    #+#             */
-/*   Updated: 2025/04/11 13:59:01 by kcarrero         ###   ########.fr       */
+/*   Updated: 2025/04/15 12:15:22 by kcarrero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	i = 0;
 	if ((dest == NULL) && (src == NULL))
 		return (NULL);
-	else if (d >= s && d < s + n)
+	else if (d > s)
 	{
 		while (n--)
 			d[n] = s[n];
