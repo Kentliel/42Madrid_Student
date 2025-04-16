@@ -1,31 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kcarrero <kcarrero@student.42madrid.c      +#+  +:+       +#+        */
+/*   By: kcarrero <kcarrero@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/15 16:10:34 by kcarrero          #+#    #+#             */
-/*   Updated: 2025/04/16 10:52:42 by kcarrero         ###   ########.fr       */
+/*   Created: 2025/04/16 15:43:19 by kcarrero          #+#    #+#             */
+/*   Updated: 2025/04/16 16:09:44 by kcarrero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+char	*ft_strrchr(const char *s, int c)
 {
-	size_t	i;
 	char	char_c;
+	char	*last_position;
+	size_t	i;
 
-	i = 0;
 	char_c = (char)c;
-	while (s[i] != '\0')
+	last_position = NULL;
+	i = 0;
+	if (s == NULL)
+		return (NULL);
+	while (s[i])
 	{
 		if (s[i] == char_c)
-			return ((char *)&s[i]);
+			last_position = (char *)&s[i];
 		i++;
 	}
 	if (char_c == '\0')
 		return ((char *)&s[i]);
-	return (NULL);
+	return (last_position);
 }

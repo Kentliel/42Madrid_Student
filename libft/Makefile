@@ -17,7 +17,9 @@ SRCS = ft_bzero.c\
 		ft_strlcpy.c\
 		ft_strlcat.c\
 		ft_toupper.c\
-		ft_tolower.c
+		ft_tolower.c\
+		ft_strchr.c\
+		ft_strrchr.c
 
 # Se descomenta al momento hacer los bonus
 # SRCS_BONUS = \
