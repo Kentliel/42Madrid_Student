@@ -6,7 +6,7 @@
 /*   By: kcarrero <kcarrero@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 15:43:19 by kcarrero          #+#    #+#             */
-/*   Updated: 2025/04/16 16:09:44 by kcarrero         ###   ########.fr       */
+/*   Updated: 2025/04/16 20:09:39 by kcarrero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,6 @@ char	*ft_strrchr(const char *s, int c)
 	char_c = (char)c;
 	last_position = NULL;
 	i = 0;
-	if (s == NULL)
-		return (NULL);
 	while (s[i])
 	{
 		if (s[i] == char_c)
