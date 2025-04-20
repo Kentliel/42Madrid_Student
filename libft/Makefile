@@ -23,7 +23,8 @@ SRCS = ft_bzero.c\
 		ft_strncmp.c\
 		ft_memchr.c\
 		ft_memcmp.c\
-		ft_strnstr.c
+		ft_strnstr.c\
+		ft_atoi.c
 
 # Se descomenta al momento hacer los bonus
 # SRCS_BONUS = \
