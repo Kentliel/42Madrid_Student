@@ -6,7 +6,7 @@
 /*   By: kcarrero <kcarrero@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 17:04:06 by kcarrero          #+#    #+#             */
-/*   Updated: 2025/04/20 23:35:55 by kcarrero         ###   ########.fr       */
+/*   Updated: 2025/04/21 18:35:41 by kcarrero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,12 @@
 
 # include <unistd.h>
 # include <stddef.h>
+# include <stdlib.h>
 
 int		ft_isalpha(int n);
 int		ft_isdigit(int n);
 int		ft_isalnum(int n);
+int		ft_isascii(int c);
 int		ft_isprint(int n);
 int		ft_strlen(const char *s);
 void	*ft_memset(void *s, int c, size_t n);
@@ -36,5 +38,7 @@ void	*ft_memchr(const void *s, int c, size_t n);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
 int		ft_atoi(const char *str);
+void	*ft_calloc(size_t nmemb, size_t size);
+char	*ft_strdup(const char *s);
 
 #endif

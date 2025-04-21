@@ -1,31 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isascii.c                                       :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kcarrero <kcarrero@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/08 18:07:50 by kcarrero          #+#    #+#             */
-/*   Updated: 2025/04/21 14:47:44 by kcarrero         ###   ########.fr       */
+/*   Created: 2025/04/21 18:14:56 by kcarrero          #+#    #+#             */
+/*   Updated: 2025/04/21 18:33:26 by kcarrero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_ascii(unsigned char c)
+char	*ft_strdup(const char *s)
 {
-	return (c <= 127);
-}
+	size_t	len;
+	char	*dup;
 
-int	ft_isascii(int n)
-{
-	unsigned char	c;
-
-	if (n < 0 || n > 255)
-		return (0);
-	else
-	{
-		c = (unsigned char)n;
-		return (ft_ascii(c));
-	}
+	len = ft_strlen(s);
+	dup = (char *)malloc(len + 1);
+	if (!dup)
+		return (NULL);
+	ft_memcpy(dup, s, len);
+	dup[len] = '\0';
+	return (dup);
 }
