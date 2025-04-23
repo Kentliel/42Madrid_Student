@@ -27,7 +27,8 @@ SRCS = ft_bzero.c\
 		ft_atoi.c\
 		ft_calloc.c\
 		ft_strdup.c\
-		ft_substr.c
+		ft_substr.c\
+		ft_strjoin.c
 
 # Se descomenta al momento hacer los bonus
 # SRCS_BONUS = \
