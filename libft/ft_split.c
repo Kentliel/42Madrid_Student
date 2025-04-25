@@ -6,7 +6,7 @@
 /*   By: kcarrero <kcarrero@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 16:50:52 by kcarrero          #+#    #+#             */
-/*   Updated: 2025/04/24 20:58:57 by kcarrero         ###   ########.fr       */
+/*   Updated: 2025/04/25 14:16:12 by kcarrero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,24 +46,43 @@ static char	**ft_alloc_word(char **spl, size_t index_word, size_t len)
 	return (spl);
 }
 
+static char	*ft_createsub(char *s, unsigned int index, size_t len)
+{
+	char *newstr;
+
+	newstr = ft_substr((const char *)s, index, len);
+	return (newstr);
+}
 char	**ft_split(char const *s, char c)
 {
-	char **split;
-	size_t	max_words;
-	size_t	start;
-	size_t	end;
+	char 			**list;
+	size_t			max_words;
+	size_t			start;
+	size_t			end;
+	unsigned int	i;
 	//la cadena es valida ¿¿ existe ¿¿
 	if (!s)
 		return (NULL);
-	split = NULL;
 	max_words = ft_wordscounter(s, c);
-	split = malloc(sizeof(char *) * max_words + 1);
+	list = malloc(sizeof(char *) * max_words + 1);
 	//necesitamos mientras que max_words > 0
-	while ()
-		//while averiguar la dimension de la palabra start = 0, end == n veces antes de encontrarse con el caracter c.
-		//ft_allocate_word(char **split,index_word, len)intentas alocar y guardar cada palabra dentro de la lista
-		//no puedo alocar una palabra > libero lo que estaba intentando alocar + la lista entera
-
+	i = 0;
+	end = 0;
+	start = 0;
+	while (max_words > 0)
+	{
+		while (s[end] != c)
+			end++;
+		if (!ft_alloc_word(split, i, (end - start)))
+			return (NULL);
+		//Aqui vamos a usar la funcion ft_createsub
+		split[i] = ft_createsub(s, start, (end - start));
+		start = end + 1;
+		if (s[end + 1] != '\0')
+			end++;
+		i++;
+		max_word--;
+	}
 	split[max_words] = NULL;
 	return (split);
 }
