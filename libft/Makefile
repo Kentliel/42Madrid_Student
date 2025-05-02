@@ -37,15 +37,19 @@ SRCS = ft_bzero.c\
 		ft_putchar_fd.c\
 		ft_putstr_fd.c\
 		ft_putendl_fd.c\
-		ft_putnbr_fd.c\
-		ft_lstnew.c
+		ft_putnbr_fd.c
 
-# Se descomenta al momento hacer los bonus
-SRCS_BONUS = ft_lstnew.c
+SRCS_BONUS = ft_lstnew.c\
+			ft_lstadd_front.c\
+			ft_lstsize.c\
+			ft_lstlast.c\
+			ft_lstadd_back.c\
+			ft_lstdelone.c\
+			ft_lstclear.c\
+			ft_lstiter.c
 
 OBJS = $(SRCS:.c=.o)
 
-# Se descomenta al momento de hacer los bonus
 OBJS_BONUS = $(SRCS_BONUS:.c=.o)
 
 all: $(NAME)
@@ -53,15 +57,15 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	$(AR) $(NAME) $(OBJS)
 
-# se descomenta a la hora de hacer los bonus
 bonus: $(OBJS) $(OBJS_BONUS)
-	$(AR) $@ $^ 
+	$(AR) $(NAME) $(OBJS) $(OBJS_BONUS)
 
 clean:
 	rm -f $(OBJS) $(OBJS_BONUS)
 
 fclean: clean
 	rm -f $(NAME)
+	rm -f $(OBJS_BONUS)
 
 re: fclean all
 
