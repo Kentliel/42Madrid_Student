@@ -6,7 +6,7 @@
 /*   By: kcarrero <kcarrero@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 13:36:55 by kcarrero          #+#    #+#             */
-/*   Updated: 2025/04/15 12:21:55 by kcarrero         ###   ########.fr       */
+/*   Updated: 2025/05/05 20:16:00 by kcarrero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,3 +27,14 @@ void	*ft_memset(void *s, int c, size_t n)
 	}
 	return (s);
 }
+/*
+#include <stdio.h>
+int	main(void)
+{
+	char	buffer[10];
+
+	ft_memset(buffer, 'A', 5);
+	buffer[5] = '\0';
+	printf("ft_memset result: %s\n", buffer);
+	return (0);
+}*/

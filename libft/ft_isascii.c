@@ -6,7 +6,7 @@
 /*   By: kcarrero <kcarrero@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 18:07:50 by kcarrero          #+#    #+#             */
-/*   Updated: 2025/04/21 14:47:44 by kcarrero         ###   ########.fr       */
+/*   Updated: 2025/05/05 19:22:50 by kcarrero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,3 +29,15 @@ int	ft_isascii(int n)
 		return (ft_ascii(c));
 	}
 }
+/*
+#include <stdio.h>
+int	main(void)
+{
+	int	c;
+
+	c = 65;
+	printf("ft_isascii ('%c') = %d\n", c,  ft_isascii(c));
+	c = 128;
+	printf("ft_isascii (%d) = %d\n", c, ft_isascii(c));
+	return (0);
+}*/
