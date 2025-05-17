@@ -1,19 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftprintf.h                                      :+:      :+:    :+:   */
+/*   ft_print_nbr.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kcarrero <kcarrero@student.42madrid.c      +#+  +:+       +#+        */
+/*   By: kcarrero <kcarrero@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/13 19:28:06 by kcarrero          #+#    #+#             */
-/*   Updated: 2025/05/17 19:27:51 by kcarrero         ###   ########.fr       */
+/*   Created: 2025/05/17 18:41:19 by kcarrero          #+#    #+#             */
+/*   Updated: 2025/05/17 18:48:16 by kcarrero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFTPRINTF_H
-# define LIBFTPRINTF_H
+#include "../includes/libftprintf.h"
 
-# include "../libft/libft.h"
-# include <stdarg.h>
+int	ft_print_nbr(int n)
+{
+	char	*num;
+	int		len;
 
-#endif // LIBFTPRINTF_H
+	num = ft_itoa(n);
+	len = ft_strlen(num);
+	write(1, num, len);
+	free(num);
+	return (len);
+}

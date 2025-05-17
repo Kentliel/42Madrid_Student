@@ -1,19 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftprintf.h                                      :+:      :+:    :+:   */
+/*   ft_print_str.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kcarrero <kcarrero@student.42madrid.c      +#+  +:+       +#+        */
+/*   By: kcarrero <kcarrero@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/13 19:28:06 by kcarrero          #+#    #+#             */
-/*   Updated: 2025/05/17 19:27:51 by kcarrero         ###   ########.fr       */
+/*   Created: 2025/05/17 17:51:18 by kcarrero          #+#    #+#             */
+/*   Updated: 2025/05/17 17:58:40 by kcarrero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFTPRINTF_H
-# define LIBFTPRINTF_H
+#include "../includes/libftprintf.h"
 
-# include "../libft/libft.h"
-# include <stdarg.h>
+int	ft_print_str(char *str)
+{
+	int	len;
 
-#endif // LIBFTPRINTF_H
+	if (!str)
+		return (write(1, "(Null)", 6));
+	len = ft_strlen(str);
+	write(1, str, len);
+	return (len);
+}

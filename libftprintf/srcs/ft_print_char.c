@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftprintf.h                                      :+:      :+:    :+:   */
+/*   ft_print_char.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kcarrero <kcarrero@student.42madrid.c      +#+  +:+       +#+        */
+/*   By: kcarrero <kcarrero@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/13 19:28:06 by kcarrero          #+#    #+#             */
-/*   Updated: 2025/05/17 19:27:51 by kcarrero         ###   ########.fr       */
+/*   Created: 2025/05/17 17:48:57 by kcarrero          #+#    #+#             */
+/*   Updated: 2025/05/17 19:30:35 by kcarrero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFTPRINTF_H
-# define LIBFTPRINTF_H
+#include "../includes/libftprintf.h"
 
-# include "../libft/libft.h"
-# include <stdarg.h>
-
-#endif // LIBFTPRINTF_H
+int	ft_print_char(char c)
+{
+	write(1, &c, 1);
+	return (1);
+}
