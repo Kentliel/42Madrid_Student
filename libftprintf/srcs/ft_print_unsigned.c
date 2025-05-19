@@ -1,37 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_print_unsigned.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kcarrero <kcarrero@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/17 17:27:06 by kcarrero          #+#    #+#             */
-/*   Updated: 2025/05/19 20:00:27 by kcarrero         ###   ########.fr       */
+/*   Created: 2025/05/19 18:55:04 by kcarrero          #+#    #+#             */
+/*   Updated: 2025/05/19 19:05:57 by kcarrero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libftprintf.h"
+#include "../includes/ft_printf.h"
 
-int	ft_printf(char const *format, ...)
+static int	ft_count_digits(unsigned int n)
 {
-	va_list	args;
-	int		i;
-	int		len;
+	int	len;
 
-	va_start(args, format);
-	i = 0;
 	len = 0;
-	while (format[i])
+	if (n == 0)
+		return (1);
+	while (n > 0)
 	{
-		if (format[i] == '%')
-		{
-			i++;
-			len += ft_try_format(format[i], args);
-		}
-		else
-			len += write(1, &format[i], args);
-		i++;
+		n = n / 10;
+		len++;
 	}
-	va_end(args);
+	return (len);
+}
+
+int	ft_print_unsigned(unsigned int n)
+{
+	char	buffer[10];
+	int		len;
+	int		i;
+
+	len = ft_count_digits(n);
+	buffer[len] = '\0';
+	i = len - 1;
+	while (i >= 0)
+	{
+		buffer[i--] = (n % 10) + '0';
+		n /= 10;
+	}
+	write(1, buffer, len);
 	return (len);
 }

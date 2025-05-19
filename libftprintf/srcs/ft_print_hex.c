@@ -1,28 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_ptr.c                                     :+:      :+:    :+:   */
+/*   ft_print_hex.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kcarrero <kcarrero@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/17 17:59:13 by kcarrero          #+#    #+#             */
-/*   Updated: 2025/05/19 19:22:45 by kcarrero         ###   ########.fr       */
+/*   Created: 2025/05/19 19:06:29 by kcarrero          #+#    #+#             */
+/*   Updated: 2025/05/19 19:18:30 by kcarrero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libftprintf.h"
+#include "../includes/ft_printf.h"
 
-static void	ft_put_ptr(unsigned long long n)
+static void	ft_puthex(unsigned int n, char format)
 {
 	char	*base;
 
-	base = "0123456789abcdef";
+	if (format == 'x')
+	{
+		base = "0123456789abcdef";
+	}
+	else
+	{
+		base = "0123456789ABCDEF";
+	}
 	if (n >= 16)
-		ft_put_ptr(n / 16);
+		ft_puthex(n / 16, format);
 	write(1, &base[n % 16], 1);
 }
 
-static int	ft_ptr_len(unsigned long long n)
+static int	ft_hex_len(unsigned int n)
 {
 	int	len;
 
@@ -37,9 +44,8 @@ static int	ft_ptr_len(unsigned long long n)
 	return (len);
 }
 
-int	ft_print_ptr(unsigned long long ptr)
+int	ft_print_hex(unsigned int n, char format)
 {
-	write(1, "0x", 2);
-	ft_put_ptr(ptr);
-	return (ft_ptr_len(ptr) + 2);
+	ft_puthex(n, format);
+	return (ft_hex_len(n));
 }
