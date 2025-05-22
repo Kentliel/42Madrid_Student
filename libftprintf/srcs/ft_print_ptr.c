@@ -6,7 +6,7 @@
 /*   By: kcarrero <kcarrero@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/17 17:59:13 by kcarrero          #+#    #+#             */
-/*   Updated: 2025/05/19 19:22:45 by kcarrero         ###   ########.fr       */
+/*   Updated: 2025/05/22 23:40:49 by kcarrero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,17 @@ static int	ft_ptr_len(unsigned long long n)
 	return (len);
 }
 
-int	ft_print_ptr(unsigned long long ptr)
+int	ft_print_ptr(void *ptr)
 {
+	unsigned long long	addres;
+
+	if (!ptr)
+	{
+		write(1, "(nil)", 5);
+		return (5);
+	}
+	addres = (unsigned long long)ptr;
 	write(1, "0x", 2);
-	ft_put_ptr(ptr);
-	return (ft_ptr_len(ptr) + 2);
+	ft_put_ptr(addres);
+	return (ft_ptr_len(addres) + 2);
 }

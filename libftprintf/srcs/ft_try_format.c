@@ -6,7 +6,7 @@
 /*   By: kcarrero <kcarrero@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 19:27:20 by kcarrero          #+#    #+#             */
-/*   Updated: 2025/05/19 20:06:06 by kcarrero         ###   ########.fr       */
+/*   Updated: 2025/05/22 23:42:21 by kcarrero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	ft_try_format(char c, va_list args)
 	else if (c == 's')
 		return (ft_print_str(va_arg(args, char *)));
 	else if (c == 'p')
-		return (ft_print_ptr(va_arg(args, unsigned long long)));
+		return (ft_print_ptr(va_arg(args, void *)));
 	else if (c == 'd' || c == 'i')
 		return (ft_print_nbr(va_arg(args, int)));
 	else if (c == 'u')
