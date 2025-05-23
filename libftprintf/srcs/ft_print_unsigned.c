@@ -6,11 +6,11 @@
 /*   By: kcarrero <kcarrero@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 18:55:04 by kcarrero          #+#    #+#             */
-/*   Updated: 2025/05/19 19:05:57 by kcarrero         ###   ########.fr       */
+/*   Updated: 2025/05/23 23:44:31 by kcarrero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "../includes/libftprintf.h"
 
 static int	ft_count_digits(unsigned int n)
 {

@@ -6,7 +6,7 @@
 /*   By: kcarrero <kcarrero@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/17 17:27:06 by kcarrero          #+#    #+#             */
-/*   Updated: 2025/05/19 20:00:27 by kcarrero         ###   ########.fr       */
+/*   Updated: 2025/05/23 23:38:53 by kcarrero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	ft_printf(char const *format, ...)
 			len += ft_try_format(format[i], args);
 		}
 		else
-			len += write(1, &format[i], args);
+			len += write(1, &format[i], 1);
 		i++;
 	}
 	va_end(args);
