@@ -6,11 +6,11 @@
 /*   By: kcarrero <kcarrero@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/17 17:48:57 by kcarrero          #+#    #+#             */
-/*   Updated: 2025/05/17 19:30:35 by kcarrero         ###   ########.fr       */
+/*   Updated: 2025/05/24 16:43:45 by kcarrero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libftprintf.h"
+#include "../includes/ft_printf.h"
 
 int	ft_print_char(char c)
 {

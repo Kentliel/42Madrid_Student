@@ -6,11 +6,11 @@
 /*   By: kcarrero <kcarrero@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 19:27:20 by kcarrero          #+#    #+#             */
-/*   Updated: 2025/05/23 23:39:47 by kcarrero         ###   ########.fr       */
+/*   Updated: 2025/05/24 16:45:30 by kcarrero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libftprintf.h"
+#include "../includes/ft_printf.h"
 
 int	ft_try_format(char c, va_list args)
 {

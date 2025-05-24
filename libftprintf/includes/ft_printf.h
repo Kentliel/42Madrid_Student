@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftprintf.h                                      :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kcarrero <kcarrero@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 19:28:06 by kcarrero          #+#    #+#             */
-/*   Updated: 2025/05/19 20:27:46 by kcarrero         ###   ########.fr       */
+/*   Updated: 2025/05/24 16:43:13 by kcarrero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFTPRINTF_H
-# define LIBFTPRINTF_H
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
 # include "../libft/libft.h"
 # include <stdarg.h>
@@ -26,4 +26,4 @@ int	ft_print_nbr(int n);
 int	ft_print_unsigned(unsigned int n);
 int	ft_print_hex(unsigned int n, char format);
 
-#endif // LIBFTPRINTF_H
+#endif // FT_PRINTF_H

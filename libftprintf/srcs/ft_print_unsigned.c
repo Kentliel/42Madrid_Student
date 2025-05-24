@@ -6,11 +6,11 @@
 /*   By: kcarrero <kcarrero@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 18:55:04 by kcarrero          #+#    #+#             */
-/*   Updated: 2025/05/23 23:44:31 by kcarrero         ###   ########.fr       */
+/*   Updated: 2025/05/24 17:11:40 by kcarrero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libftprintf.h"
+#include "../includes/ft_printf.h"
 
 static int	ft_count_digits(unsigned int n)
 {
@@ -29,7 +29,7 @@ static int	ft_count_digits(unsigned int n)
 
 int	ft_print_unsigned(unsigned int n)
 {
-	char	buffer[10];
+	char	buffer[11];
 	int		len;
 	int		i;
 
