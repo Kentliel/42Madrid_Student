@@ -6,7 +6,7 @@
 /*   By: kcarrero <kcarrero@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/29 12:21:16 by kcarrero          #+#    #+#             */
-/*   Updated: 2025/06/06 17:10:03 by kcarrero         ###   ########.fr       */
+/*   Updated: 2025/06/16 20:15:07 by kcarrero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,13 @@ size_t	ft_strlen_gnl(const char *s)
 
 char	*ft_strchr_gnl(const char *s, int c)
 {
-	while (*s)
+	while (s && *s)
 	{
 		if (*s == (char)c)
 			return ((char *)s);
 		s++;
 	}
-	if ((char)c == '\0')
+	if (s && *s == (char)c)
 		return ((char *)s);
 	return (NULL);
 }
