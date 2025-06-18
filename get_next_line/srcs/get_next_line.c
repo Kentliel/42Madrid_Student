@@ -6,13 +6,13 @@
 /*   By: kcarrero <kcarrero@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/29 12:19:27 by kcarrero          #+#    #+#             */
-/*   Updated: 2025/06/18 15:49:46 by kcarrero         ###   ########.fr       */
+/*   Updated: 2025/06/18 19:02:46 by kcarrero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/get_next_line.h"
 
-static char	*ft_read_and_update_cache(int fd, char *cache)
+static char	*ft_read_and_update_cache(int fd, char *cache, int *finished)
 {
 	char	*buffer;
 	ssize_t	bytes_read;
@@ -23,8 +23,10 @@ static char	*ft_read_and_update_cache(int fd, char *cache)
 		return (NULL);
 	bytes_read = read(fd, buffer, BUFFER_SIZE);
 	if (bytes_read < 0)
-		return (free(buffer), NULL);
+		return (free(buffer), free(cache), NULL);
 	buffer[bytes_read] = '\0';
+	if (bytes_read == 0)
+		return (free(buffer), *finished = 1, cache);
 	if (!cache)
 		cache = ft_strdup_gnl(buffer);
 	else
@@ -40,9 +42,12 @@ static char	*ft_read_and_update_cache(int fd, char *cache)
 
 static char	*ft_read_and_cache(int fd, char *cache)
 {
-	while (!ft_strchr_gnl(cache, '\n'))
+	int	finished;
+
+	finished = 0;
+	while (!ft_strchr_gnl(cache, '\n') && !finished)
 	{
-		cache = ft_read_and_update_cache(fd, cache);
+		cache = ft_read_and_update_cache(fd, cache, &finished);
 		if (!cache)
 			return (NULL);
 		if (ft_strlen_gnl(cache) == 0)
