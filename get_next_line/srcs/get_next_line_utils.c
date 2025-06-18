@@ -6,11 +6,11 @@
 /*   By: kcarrero <kcarrero@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/29 12:21:16 by kcarrero          #+#    #+#             */
-/*   Updated: 2025/06/16 20:15:07 by kcarrero         ###   ########.fr       */
+/*   Updated: 2025/06/16 22:44:34 by kcarrero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "../includes/get_next_line.h"
 
 size_t	ft_strlen_gnl(const char *s)
 {

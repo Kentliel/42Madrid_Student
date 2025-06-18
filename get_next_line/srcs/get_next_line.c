@@ -6,11 +6,11 @@
 /*   By: kcarrero <kcarrero@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/29 12:19:27 by kcarrero          #+#    #+#             */
-/*   Updated: 2025/06/16 21:51:47 by kcarrero         ###   ########.fr       */
+/*   Updated: 2025/06/18 15:49:46 by kcarrero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "../includes/get_next_line.h"
 
 static char	*ft_read_and_update_cache(int fd, char *cache)
 {
@@ -23,16 +23,16 @@ static char	*ft_read_and_update_cache(int fd, char *cache)
 		return (NULL);
 	bytes_read = read(fd, buffer, BUFFER_SIZE);
 	if (bytes_read < 0)
-		return (free(buffer), free(cache), NULL);
+		return (free(buffer), NULL);
 	buffer[bytes_read] = '\0';
 	if (!cache)
 		cache = ft_strdup_gnl(buffer);
 	else
 	{
 		tmp = ft_strjoin_gnl(cache, buffer);
-		if (!tmp)
-			return (free(buffer), free(cache), NULL);
 		free(cache);
+		if (!tmp)
+			return (free(buffer), NULL);
 		cache = tmp;
 	}
 	return (free(buffer), cache);
@@ -45,6 +45,8 @@ static char	*ft_read_and_cache(int fd, char *cache)
 		cache = ft_read_and_update_cache(fd, cache);
 		if (!cache)
 			return (NULL);
+		if (ft_strlen_gnl(cache) == 0)
+			return (free(cache), NULL);
 	}
 	return (cache);
 }
@@ -81,10 +83,7 @@ static char	*ft_update_cache(char *cache)
 	while (cache[i] && cache[i] != '\n')
 		i++;
 	if (!cache[i])
-	{
-		free(cache);
-		return (NULL);
-	}
+		return (free(cache), NULL);
 	i++;
 	cache_len = ft_strlen_gnl(cache);
 	new_cache = (char *)malloc(sizeof(char) * (cache_len - i + 1));
@@ -96,7 +95,7 @@ static char	*ft_update_cache(char *cache)
 	return (new_cache);
 }
 
-char	*ft_get_next_line(int fd)
+char	*get_next_line(int fd)
 {
 	static char	*cache;
 	char		*line;
