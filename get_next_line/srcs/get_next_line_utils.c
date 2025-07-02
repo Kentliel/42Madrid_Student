@@ -6,11 +6,11 @@
 /*   By: kcarrero <kcarrero@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/29 12:21:16 by kcarrero          #+#    #+#             */
-/*   Updated: 2025/06/21 01:30:17 by kcarrero         ###   ########.fr       */
+/*   Updated: 2025/07/01 16:27:45 by kcarrero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/get_next_line.h"
+#include "get_next_line.h"
 
 size_t	ft_strlen_gnl(const char *s)
 {
@@ -61,6 +61,8 @@ char	*ft_strdup_gnl(const char *s)
 	size_t	len;
 	char	*dup;
 
+	if (!s)
+		return (NULL);
 	len = ft_strlen_gnl(s);
 	dup = (char *)malloc(len + 1);
 	if (!dup)

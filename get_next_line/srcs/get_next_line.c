@@ -6,11 +6,11 @@
 /*   By: kcarrero <kcarrero@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/29 12:19:27 by kcarrero          #+#    #+#             */
-/*   Updated: 2025/06/21 01:26:42 by kcarrero         ###   ########.fr       */
+/*   Updated: 2025/07/01 17:28:51 by kcarrero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/get_next_line.h"
+#include "get_next_line.h"
 
 static char	*ft_read_and_update_cache(int fd, int *finished)
 {
@@ -42,20 +42,21 @@ static char	*ft_read_and_cache(int fd, char *cache)
 	while (!ft_strchr_gnl(cache, '\n') && !finished)
 	{
 		buffer = ft_read_and_update_cache(fd, &finished);
-		if (!buffer && !cache)
-			return (NULL);
-		if (buffer && !cache)
+		if (finished == 0 && !buffer)
+			return (free(cache), NULL);
+		if (!buffer)
+			return (cache);
+		if (!cache)
 			cache = ft_strdup_gnl(buffer);
-		else if (buffer && cache)
+		else
 		{
 			tmp = ft_strjoin_gnl(cache, buffer);
 			free(cache);
 			cache = tmp;
 		}
-		if (buffer)
-			free(buffer);
-		if (!cache)
-			return (NULL);
+		free(buffer);
+		if (!cache || ft_strlen_gnl(cache) == 0)
+			return (free(cache), NULL);
 	}
 	return (cache);
 }
@@ -113,8 +114,18 @@ char	*get_next_line(int fd)
 		return (NULL);
 	cache = ft_read_and_cache(fd, cache);
 	if (!cache)
+	{
+		free(cache);
+		cache = NULL;
 		return (NULL);
+	}
 	line = ft_extract_line(cache);
+	if (!line)
+	{
+		free(cache);
+		cache = NULL;
+		return (NULL);
+	}
 	cache = ft_update_cache(cache);
 	return (line);
 }
