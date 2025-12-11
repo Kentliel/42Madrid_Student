@@ -6,13 +6,13 @@
 /*   By: kcarrero <kcarrero@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 10:38:40 by kcarrero          #+#    #+#             */
-/*   Updated: 2025/12/09 11:06:58 by kcarrero         ###   ########.fr       */
+/*   Updated: 2025/12/11 18:44:19 by kcarrero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-static int	validate_char(t_map *m, char c, int x, int y)
+static int	ft_validate_char(t_map *m, char c, int x, int y)
 {
 	if (c == 'P')
 	{
@@ -29,7 +29,7 @@ static int	validate_char(t_map *m, char c, int x, int y)
 	return (1);
 }
 
-int	check_rectangular(t_mapp *m)
+int	ft_check_rectangular(t_map *m)
 {
 	int	i;
 
@@ -43,7 +43,7 @@ int	check_rectangular(t_mapp *m)
 	return (1);
 }
 
-int	check_borders(t_map *m)
+int	ft_check_borders(t_map *m)
 {
 	int	x;
 	int	y;
@@ -65,7 +65,7 @@ int	check_borders(t_map *m)
 	return (1);
 }
 
-int	check_chars_and_counts(t_map *m)
+int	ft_check_chars_and_counts(t_map *m)
 {
 	int		x;
 	int		y;
@@ -77,7 +77,7 @@ int	check_chars_and_counts(t_map *m)
 		x = 0;
 		while (x < (*m).width)
 		{
-			if (!validate_char(m, (*m).grid[y][x], x, y))
+			if (!ft_validate_char(m, (*m).grid[y][x], x, y))
 				return (0);
 			x++;
 		}
