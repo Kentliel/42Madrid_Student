@@ -6,11 +6,11 @@
 /*   By: kcarrero <kcarrero@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 19:05:53 by kcarrero          #+#    #+#             */
-/*   Updated: 2025/12/11 19:27:42 by kcarrero         ###   ########.fr       */
+/*   Updated: 2025/12/12 13:23:37 by kcarrero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "so_long.h"
 #include <stdlib.h>
 
 static int	ft_print_error(char *msg)

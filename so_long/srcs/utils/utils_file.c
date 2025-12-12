@@ -6,7 +6,7 @@
 /*   By: kcarrero <kcarrero@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 15:57:45 by kcarrero          #+#    #+#             */
-/*   Updated: 2025/12/04 19:33:47 by kcarrero         ###   ########.fr       */
+/*   Updated: 2025/12/12 13:16:35 by kcarrero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ char	*ft_read_file(const char *path)
 	r = read(fd, tmp, sizeof(tmp));
 	while (r > 0)
 	{
-		buf = ft_append_chuck(buf, tmp, r);
+		buf = ft_append_chunk(buf, tmp, r);
 		if (!buf)
 		{
 			close(fd);

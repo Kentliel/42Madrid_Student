@@ -6,7 +6,7 @@
 /*   By: kcarrero <kcarrero@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 10:38:40 by kcarrero          #+#    #+#             */
-/*   Updated: 2025/12/11 18:44:19 by kcarrero         ###   ########.fr       */
+/*   Updated: 2025/12/12 13:27:59 by kcarrero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,6 @@ int	ft_check_chars_and_counts(t_map *m)
 {
 	int		x;
 	int		y;
-	char	c;
 
 	y = 0;
 	while (y < (*m).height)

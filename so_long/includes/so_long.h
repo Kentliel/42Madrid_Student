@@ -6,7 +6,7 @@
 /*   By: kcarrero <kcarrero@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 18:10:10 by kcarrero          #+#    #+#             */
-/*   Updated: 2025/12/11 19:32:47 by kcarrero         ###   ########.fr       */
+/*   Updated: 2025/12/12 13:15:09 by kcarrero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,15 @@
 
 # include <stddef.h>
 # include "libft.h"
+# include "ft_printf.h"
+# include <mlx.h>
+
+//Keys for linux
+# define KEY_ESC 65307
+# define KEY_W 119
+# define KEY_A 97
+# define KEY_S 115
+# define KEY_D 100
 
 typedef struct s_map
 {
@@ -28,6 +37,14 @@ typedef struct s_map
 	int		player_x;
 	int		player_y;
 }	t_map;
+
+typedef struct s_game
+{
+	void	*mlx;
+	void	*win;
+	t_map	map;
+	int		tiles_s;
+}	t_game;
 
 typedef struct s_bfs
 {
@@ -59,5 +76,12 @@ int		ft_check_path_valid(t_map *m);
 /*funcion parser_main.c*/
 int		ft_parse_map(const char *path, t_map *map);
 void	ft_free_map(t_map *map);
+
+/*Funcion init_game.c*/
+void	ft_init_game(t_game *g, t_map *map);
+int		ft_close_game(t_game *g);
+
+/*Funcion render_map.c*/
+int		ft_render_map(t_game *g);
 
 #endif
