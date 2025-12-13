@@ -23,7 +23,7 @@ LIBFT = $(LIBFT_DIR)/libft.a
 MLX_DIR = minilibx-linux
 MLX_LIB = $(MLX_DIR)/libmlx.a
 MLX_LIB2 = $(MLX_DIR)/libmlx_Linux.a
-MLX_FLAGS = -L$(MLX_DIR) -lmlx -L/usr/lib -lXext -lX11 -lm -lz
+MLX_FLAGS = -L$(MLX_DIR) -lmlx -lXext -lX11 -lm -lz
 
 all: $(LIBFT) $(MLX_LIB) $(NAME)
 
@@ -47,7 +47,7 @@ $(MLX_LIB):
 	@$(MAKE) -C $(MLX_DIR)
 
 clean:
-	@rm -f $(OBJ_DIR)
+	@rm -rf $(OBJ_DIR)
 	@$(MAKE) -C $(LIBFT_DIR) clean
 	@$(MAKE) -C $(MLX_DIR) clean
 	@echo "🧹 Delete objects"
