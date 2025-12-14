@@ -6,14 +6,14 @@
 /*   By: kcarrero <kcarrero@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 19:05:53 by kcarrero          #+#    #+#             */
-/*   Updated: 2025/12/12 13:23:37 by kcarrero         ###   ########.fr       */
+/*   Updated: 2025/12/14 00:52:29 by kcarrero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 #include <stdlib.h>
 
-static int	ft_print_error(char *msg)
+int	ft_print_error(char *msg)
 {
 	ft_printf("ERROR\n%s\n", msg);
 	return (0);
@@ -43,7 +43,7 @@ static int	ft_check_basic(t_map *map)
 		return (ft_print_error("Debe haber exactamente 1 jugador ('P')"));
 	if ((*map).count_e != 1)
 		return (ft_print_error("Debe haber exactamente 1 salida ('E')"));
-	if ((*map).count_c != 1)
+	if ((*map).count_c < 1)
 		return (ft_print_error("Debe haber al menos 1 coleccionable ('C')"));
 	return (1);
 }

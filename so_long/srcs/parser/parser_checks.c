@@ -6,7 +6,7 @@
 /*   By: kcarrero <kcarrero@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 10:38:40 by kcarrero          #+#    #+#             */
-/*   Updated: 2025/12/12 13:27:59 by kcarrero         ###   ########.fr       */
+/*   Updated: 2025/12/14 01:00:10 by kcarrero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,5 +82,11 @@ int	ft_check_chars_and_counts(t_map *m)
 		}
 		y++;
 	}
+	if ((*m).count_c < 1)
+		return (ft_print_error("ERROR EN EL DEBUG: La variable C es 0"));
+	if ((*m).count_p != 1)
+		return (ft_print_error("Debe haber 1 punto de inicio ('P')"));
+	if ((*m).count_e < 1)
+		return (ft_print_error("Debe haber al menos 1 salida ('E')"));
 	return (1);
 }

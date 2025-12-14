@@ -6,7 +6,7 @@
 /*   By: kcarrero <kcarrero@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 18:10:10 by kcarrero          #+#    #+#             */
-/*   Updated: 2025/12/12 13:15:09 by kcarrero         ###   ########.fr       */
+/*   Updated: 2025/12/14 00:27:00 by kcarrero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@ int		ft_check_path_valid(t_map *m);
 
 /*funcion parser_main.c*/
 int		ft_parse_map(const char *path, t_map *map);
+int		ft_print_error(char *msg);
 void	ft_free_map(t_map *map);
 
 /*Funcion init_game.c*/

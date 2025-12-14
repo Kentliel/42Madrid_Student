@@ -6,7 +6,7 @@
 /*   By: kcarrero <kcarrero@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/12 10:59:05 by kcarrero          #+#    #+#             */
-/*   Updated: 2025/12/12 11:04:36 by kcarrero         ###   ########.fr       */
+/*   Updated: 2025/12/14 00:12:42 by kcarrero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,9 @@ int	main(int argc, char **argv)
 		ft_printf("ERROR\nUso: ./so_long <mapa.ber>\n");
 		return (1);
 	}
+	map.count_c = 0;
+	map.count_p = 0;
+	map.count_e = 0;
 	map.grid = NULL;
 	map.raw_buf = NULL;
 	if (!ft_parse_map(argv[1], &map))
