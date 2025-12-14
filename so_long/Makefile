@@ -14,7 +14,8 @@ SRCS = $(SRC_DIR)/main.c \
 	$(SRC_DIR)/parser/parser_path.c \
 	$(SRC_DIR)/game/init_game.c \
 	$(SRC_DIR)/game/render_map.c \
-	$(SRC_DIR)/game/game_move.c
+	$(SRC_DIR)/game/game_move.c \
+	$(SRC_DIR)/game/game_images.c
 
 OBJS := $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 

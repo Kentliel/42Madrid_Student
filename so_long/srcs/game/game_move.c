@@ -6,7 +6,7 @@
 /*   By: kcarrero <kcarrero@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/14 15:32:42 by kcarrero          #+#    #+#             */
-/*   Updated: 2025/12/14 15:47:00 by kcarrero         ###   ########.fr       */
+/*   Updated: 2025/12/14 18:59:48 by kcarrero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,18 @@ static int	ft_valid_move(t_game *g, int x, int y)
 	if ((*g).map.grid[y][x] == 'E' && (*g).collect_left > 0)
 		return (0);
 	return (1);
+}
+
+static void	ft_change_sprite(t_game *g, int dx, int dy)
+{
+	if (dy == -1)
+		(*g).player_curr = (*g).p_up;
+	else if (dy == 1)
+		(*g).player_curr = (*g).p_down;
+	else if (dx == -1)
+		(*g).player_curr = (*g).p_left;
+	else if (dx == 1)
+		(*g).player_curr = (*g).p_right;
 }
 
 static void	ft_process_cell(t_game *g, int x, int y)
@@ -40,10 +52,14 @@ void	ft_move_player(t_game *g, int dx, int dy)
 	int	nx;
 	int	ny;
 
+	ft_change_sprite(g, dx, dy);
 	nx = (*g).map.player_x + dx;
 	ny = (*g).map.player_y + dy;
 	if (!ft_valid_move(g, nx, ny))
+	{
+		ft_render_map(g);
 		return ;
+	}
 	ft_process_cell(g, nx, ny);
 	if ((*g).map.grid[ny][nx] != 'E')
 	{

@@ -6,7 +6,7 @@
 /*   By: kcarrero <kcarrero@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 18:10:10 by kcarrero          #+#    #+#             */
-/*   Updated: 2025/12/14 15:53:32 by kcarrero         ###   ########.fr       */
+/*   Updated: 2025/12/14 19:14:04 by kcarrero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,15 @@ typedef struct s_game
 	int		tiles_s;
 	int		moves;
 	int		collect_left;
+	void	*wall;
+	void	*floor;
+	void	*collect;
+	void	*exit;
+	void	*p_up;
+	void	*p_down;
+	void	*p_left;
+	void	*p_right;
+	void	*player_curr;
 }	t_game;
 
 typedef struct s_bfs
@@ -89,5 +98,9 @@ int		ft_render_map(t_game *g);
 
 /*Funcion game_move.c*/
 void	ft_move_player(t_game *g, int dx, int dy);
+
+/*Funcion game_images.c*/
+int		ft_load_images(t_game *g);
+void	ft_free_images(t_game *g);
 
 #endif

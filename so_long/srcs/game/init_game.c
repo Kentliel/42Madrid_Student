@@ -6,7 +6,7 @@
 /*   By: kcarrero <kcarrero@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/12 11:05:07 by kcarrero          #+#    #+#             */
-/*   Updated: 2025/12/14 15:51:28 by kcarrero         ###   ########.fr       */
+/*   Updated: 2025/12/14 19:12:17 by kcarrero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 /*close the game cleanly*/
 int	ft_close_game(t_game *g)
 {
+	ft_free_images(g);
 	if ((*g).win)
 		mlx_destroy_window((*g).mlx, (*g).win);
 	if ((*g).mlx)
@@ -56,14 +57,16 @@ void	ft_init_game(t_game *g, t_map *map)
 		ft_free_map(map);
 		exit(1);
 	}
-	(*g).win = mlx_new_window((*g).mlx, (*g).map.width * (*g).tiles_s,
-			(*g).map.height * (*g).tiles_s, "so_long");
-	if (!(*g).win)
+	if (!ft_load_images(g))
 	{
 		free((*g).mlx);
 		ft_free_map(map);
 		exit(1);
 	}
+	(*g).win = mlx_new_window((*g).mlx, (*g).map.width * (*g).tiles_s,
+			(*g).map.height * (*g).tiles_s, "so_long");
+	if (!(*g).win)
+		ft_close_game(g);
 	mlx_hook((*g).win, 17, 0, ft_close_game, g);
 	mlx_key_hook((*g).win, ft_key_hook, g);
 }

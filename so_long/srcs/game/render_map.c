@@ -6,47 +6,46 @@
 /*   By: kcarrero <kcarrero@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/12 12:05:46 by kcarrero          #+#    #+#             */
-/*   Updated: 2025/12/12 13:44:47 by kcarrero         ###   ########.fr       */
+/*   Updated: 2025/12/14 19:16:15 by kcarrero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-/*Draw a square of a specific color pixel by pixel*/
-static void	ft_draw_square(t_game *g, int x, int y, int color)
+static void	ft_put_img(t_game *g, void *img, int x, int y)
 {
-	int	i;
-	int	j;
-
-	i = 0;
-	while (i < (*g).tiles_s)
-	{
-		j = 0;
-		while (j < (*g).tiles_s)
-		{
-			mlx_pixel_put((*g).mlx, (*g).win, (x * (*g).tiles_s) + j,
-				(y * (*g).tiles_s) + i, color);
-			j++;
-		}
-		i++;
-	}
+	mlx_put_image_to_window((*g).mlx, (*g).win, img,
+		x * (*g).tiles_s, y * (*g).tiles_s);
 }
 
-static void	ft_put_pixel_color(t_game *g, int x, int y)
+/*Draw a square of a specific color pixel by pixel*/
+static void	ft_draw_tile(t_game *g, int x, int y)
 {
 	char	c;
 
 	c = (*g).map.grid[y][x];
+	ft_put_img(g, (*g).floor, x, y);
 	if (c == '1')
-		ft_draw_square(g, x, y, 0x808080);
-	else if (c == '0')
-		ft_draw_square(g, x, y, 0xFFFFFF);
-	else if (c == 'P')
-		ft_draw_square(g, x, y, 0x00FF00);
+		ft_put_img(g, (*g).wall, x, y);
 	else if (c == 'C')
-		ft_draw_square(g, x, y, 0xFFFF00);
+		ft_put_img(g, (*g).collect, x, y);
 	else if (c == 'E')
-		ft_draw_square(g, x, y, 0x0000FF);
+		ft_put_img(g, (*g).exit, x, y);
+	else if (c == 'P')
+		ft_put_img(g, (*g).player_curr, x, y);
+}
+
+static void	ft_draw_moves(t_game *g)
+{
+	char	*nbr;
+
+	mlx_string_put((*g).mlx, (*g).win, 12, 20, 0xFFFFFF, "Moves: ");
+	nbr = ft_itoa((*g).moves);
+	if (nbr)
+	{
+		mlx_string_put((*g).mlx, (*g).win, 60, 20, 0xFFFFFF, nbr);
+		free(nbr);
+	}
 }
 
 int	ft_render_map(t_game *g)
@@ -60,10 +59,11 @@ int	ft_render_map(t_game *g)
 		x = 0;
 		while (x < (*g).map.width)
 		{
-			ft_put_pixel_color(g, x, y);
+			ft_draw_tile(g, x, y);
 			x++;
 		}
 		y++;
 	}
+	ft_draw_moves(g);
 	return (0);
 }
