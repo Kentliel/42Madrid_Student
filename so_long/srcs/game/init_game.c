@@ -6,7 +6,7 @@
 /*   By: kcarrero <kcarrero@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/12 11:05:07 by kcarrero          #+#    #+#             */
-/*   Updated: 2025/12/12 13:43:51 by kcarrero         ###   ########.fr       */
+/*   Updated: 2025/12/14 15:51:28 by kcarrero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,24 @@ static int	ft_key_hook(int keycode, t_game *g)
 {
 	if (keycode == KEY_ESC)
 		ft_close_game(g);
+	else if (keycode == KEY_W)
+		ft_move_player(g, 0, -1);
+	else if (keycode == KEY_A)
+		ft_move_player(g, -1, 0);
+	else if (keycode == KEY_S)
+		ft_move_player(g, 0, 1);
+	else if (keycode == KEY_D)
+		ft_move_player(g, 1, 0);
 	return (0);
 }
 
 /*g->title_s(tamaño P. de cuadrado), hook (1(window x button), 2(keyboard))*/
 void	ft_init_game(t_game *g, t_map *map)
 {
-	(*g).tiles_s = 40;
+	(*g).tiles_s = 64;
 	(*g).map = *map;
+	(*g).moves = 0;
+	(*g).collect_left = (*g).map.count_c;
 	(*g).mlx = mlx_init();
 	if (!(*g).mlx)
 	{
