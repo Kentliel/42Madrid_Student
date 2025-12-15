@@ -6,22 +6,34 @@
 /*   By: kcarrero <kcarrero@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/12 11:05:07 by kcarrero          #+#    #+#             */
-/*   Updated: 2025/12/14 19:12:17 by kcarrero         ###   ########.fr       */
+/*   Updated: 2025/12/15 12:53:09 by kcarrero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
+static void	ft_zero_game(t_game *g)
+{
+	ft_bzero(g, sizeof(*g));
+}
+
 /*close the game cleanly*/
 int	ft_close_game(t_game *g)
 {
+	if (!g)
+		exit(0);
+	ft_printf("DEBUG: closing game, freeing resources\n");
 	ft_free_images(g);
 	if ((*g).win)
+	{
 		mlx_destroy_window((*g).mlx, (*g).win);
+		(*g).win = NULL;
+	}
 	if ((*g).mlx)
 	{
 		mlx_destroy_display((*g).mlx);
 		free((*g).mlx);
+		(*g).mlx = NULL;
 	}
 	ft_free_map(&(*g).map);
 	exit(0);
@@ -47,8 +59,11 @@ static int	ft_key_hook(int keycode, t_game *g)
 /*g->title_s(tamaño P. de cuadrado), hook (1(window x button), 2(keyboard))*/
 void	ft_init_game(t_game *g, t_map *map)
 {
+	ft_zero_game(g);
 	(*g).tiles_s = 64;
 	(*g).map = *map;
+	(*map).raw_buf = NULL;
+	(*map).grid = NULL;
 	(*g).moves = 0;
 	(*g).collect_left = (*g).map.count_c;
 	(*g).mlx = mlx_init();

@@ -6,7 +6,7 @@
 /*   By: kcarrero <kcarrero@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 19:05:53 by kcarrero          #+#    #+#             */
-/*   Updated: 2025/12/14 00:52:29 by kcarrero         ###   ########.fr       */
+/*   Updated: 2025/12/15 12:57:13 by kcarrero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,19 @@ int	ft_print_error(char *msg)
 
 void	ft_free_map(t_map *map)
 {
-	if (map)
+	if (!map)
 		return ;
+	ft_printf("DEBUG: freeing map raw_buf=%p grid=%p\n", map->raw_buf, map->grid);
 	if ((*map).raw_buf)
+	{
 		free((*map).raw_buf);
+		(*map).raw_buf = NULL;
+	}
 	if ((*map).grid)
+	{
 		free((*map).grid);
-	(*map).raw_buf = NULL;
-	(*map).grid = NULL;
+		(*map).grid = NULL;
+	}
 }
 
 static int	ft_check_basic(t_map *map)
@@ -57,6 +62,7 @@ static int	ft_setup_map_grid(const char *path, t_map *map)
 	if (!buf)
 		return (ft_print_error("No se pudo leer el fichero"));
 	(*map).grid = ft_split_lines(buf, &lines);
+	(*map).raw_buf = NULL;
 	if (!(*map).grid || lines == 0)
 	{
 		free(buf);
