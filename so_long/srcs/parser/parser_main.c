@@ -6,7 +6,7 @@
 /*   By: kcarrero <kcarrero@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 19:05:53 by kcarrero          #+#    #+#             */
-/*   Updated: 2025/12/15 12:57:13 by kcarrero         ###   ########.fr       */
+/*   Updated: 2025/12/15 13:25:50 by kcarrero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ void	ft_free_map(t_map *map)
 {
 	if (!map)
 		return ;
-	ft_printf("DEBUG: freeing map raw_buf=%p grid=%p\n", map->raw_buf, map->grid);
 	if ((*map).raw_buf)
 	{
 		free((*map).raw_buf);
