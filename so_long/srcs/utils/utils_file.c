@@ -6,7 +6,7 @@
 /*   By: kcarrero <kcarrero@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 15:57:45 by kcarrero          #+#    #+#             */
-/*   Updated: 2025/12/15 11:41:35 by kcarrero         ###   ########.fr       */
+/*   Updated: 2025/12/15 14:27:37 by kcarrero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,9 +66,21 @@ static char	*read_into_buf(int fd)
 
 int	ft_check_extension(const char *path, const char *ext)
 {
-	size_t	p;
-	size_t	e;
+	const char	*base;
+	size_t		p;
+	size_t		e;
 
+	if (!path || !ext)
+		return (0);
+	base = ft_strrchr(path, '/');
+	if (base)
+		base++;
+	else
+		base = path;
+	if (!base || base[0] == '\0')
+		return (0);
+	if (base[0] == '.')
+		return (0);
 	p = ft_strlen(path);
 	e = ft_strlen(ext);
 	if (p <= e)
