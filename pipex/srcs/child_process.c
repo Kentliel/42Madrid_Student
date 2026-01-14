@@ -6,7 +6,7 @@
 /*   By: kcarrero <kcarrero@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 18:54:55 by kcarrero          #+#    #+#             */
-/*   Updated: 2026/01/14 19:01:26 by kcarrero         ###   ########.fr       */
+/*   Updated: 2026/01/14 20:51:38 by kcarrero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	execute_child(char *cmd, t_pipex *px)
 	char	**args;
 	char	*exec;
 
-	if (dup2(px->int_fd, STDIN_FILENO) == -1)
+	if (dup2(px->in_fd, STDIN_FILENO) == -1)
 		exit(1);
 	if (dup2(px->out_fd, STDOUT_FILENO) == -1)
 		exit(1);

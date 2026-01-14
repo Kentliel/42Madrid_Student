@@ -6,7 +6,7 @@
 /*   By: kcarrero <kcarrero@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 19:10:41 by kcarrero          #+#    #+#             */
-/*   Updated: 2026/01/14 20:44:02 by kcarrero         ###   ########.fr       */
+/*   Updated: 2026/01/14 20:51:07 by kcarrero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,15 +49,15 @@ int	main(int argc, char **argv, char **envp)
 	if (pipe(px.pipe_fd) == -1)
 		return (perror("pipe"), 1);
 	px.close_fd = px.pipe_fd[0];
-	px.pip1 = launch(argv[2], &px, px.in_fd, px.pipe_fd[1]);
+	px.pid1 = launch(argv[2], &px, px.in_fd, px.pipe_fd[1]);
 	px.close_fd = px.pipe_fd[1];
-	px.pip2 = launch(argv[3], &px, px.pipe_fd[0], px.out_fd);
+	px.pid2 = launch(argv[3], &px, px.pipe_fd[0], px.out_fd);
 	close(px.in_fd);
 	close(px.out_fd);
 	close(px.pipe_fd[0]);
 	close(px.pipe_fd[1]);
-	waitpid(px.pip1, NULL, 0);
-	waitpid(px.pip2, &status, 0);
+	waitpid(px.pid1, NULL, 0);
+	waitpid(px.pid2, &status, 0);
 	if (WIFEXITED(status))
 		return (WEXITSTATUS(status));
 	return (1);
