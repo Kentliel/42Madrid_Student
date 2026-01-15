@@ -6,7 +6,7 @@
 /*   By: kcarrero <kcarrero@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 18:54:55 by kcarrero          #+#    #+#             */
-/*   Updated: 2026/01/15 08:56:56 by kcarrero         ###   ########.fr       */
+/*   Updated: 2026/01/15 14:10:57 by kcarrero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,12 @@ void	execute_child(char *cmd, t_pipex *px)
 	if (redirect_io(px) == -1)
 		exit(1);
 	args = parse_command(cmd);
+	if (!args || !args[0])
+	{
+		free_matrix(args);
+		perror("parse_command");
+		exit(1);
+	}
 	exec = find_executable(args[0], px->envp);
 	if (!exec)
 	{

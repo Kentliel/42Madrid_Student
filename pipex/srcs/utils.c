@@ -6,7 +6,7 @@
 /*   By: kcarrero <kcarrero@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 18:40:56 by kcarrero          #+#    #+#             */
-/*   Updated: 2026/01/14 18:44:18 by kcarrero         ###   ########.fr       */
+/*   Updated: 2026/01/15 13:16:47 by kcarrero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,21 @@ char	**parse_command(char *cmd)
 {
 	char	**args;
 
+	if (cmd == NULL)
+	{
+		perror("parse_command");
+		exit(1);
+	}
 	args = ft_split(cmd, ' ');
-	if (!args)
+	if (args == NULL)
 	{
 		perror("malloc");
+		exit(1);
+	}
+	if (args[0] == NULL || args[0][0] == '\0')
+	{
+		free_matrix(args);
+		perror("parse_command");
 		exit(1);
 	}
 	return (args);

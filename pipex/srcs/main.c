@@ -6,7 +6,7 @@
 /*   By: kcarrero <kcarrero@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 19:10:41 by kcarrero          #+#    #+#             */
-/*   Updated: 2026/01/15 09:07:48 by kcarrero         ###   ########.fr       */
+/*   Updated: 2026/01/15 13:23:26 by kcarrero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ int	main(int argc, char **argv, char **envp)
 
 	if (argc != 5)
 		return (ft_printf("Usage: ./pipex file1 cmd1 cmd2 file2\n"), 1);
+	ft_bzero(&px, sizeof(px));
 	px.envp = envp;
 	open_files(argv, &px);
 	outfile_fd = px.out_fd;
