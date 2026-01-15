@@ -6,7 +6,7 @@
 /*   By: kcarrero <kcarrero@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 19:10:41 by kcarrero          #+#    #+#             */
-/*   Updated: 2026/01/14 22:07:46 by kcarrero         ###   ########.fr       */
+/*   Updated: 2026/01/15 09:07:48 by kcarrero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,23 @@ static pid_t	launch(char *cmd, t_pipex *px, int in, int out)
 	return (create_child(cmd, px));
 }
 
+static int	collect_exit_status(pid_t pid1, pid_t pid2)
+{
+	int	status1;
+	int	status2;
+
+	waitpid(pid1, &status1, 0);
+	waitpid(pid2, &status2, 0);
+	if (WIFEXITED(status1) && WEXITSTATUS(status1) != 0)
+		return (WEXITSTATUS(status1));
+	if (WIFEXITED(status2))
+		return (WEXITSTATUS(status2));
+	return (1);
+}
+
 int	main(int argc, char **argv, char **envp)
 {
 	t_pipex	px;
-	int		status;
 	int		outfile_fd;
 
 	if (argc != 5)
@@ -54,9 +67,5 @@ int	main(int argc, char **argv, char **envp)
 	if (px.in_fd != -1)
 		close(px.in_fd);
 	close(outfile_fd);
-	waitpid(px.pid1, NULL, 0);
-	waitpid(px.pid2, &status, 0);
-	if (WIFEXITED(status))
-		return (WEXITSTATUS(status));
-	return (1);
+	return (collect_exit_status(px.pid1, px.pid2));
 }

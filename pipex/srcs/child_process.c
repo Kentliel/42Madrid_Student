@@ -6,7 +6,7 @@
 /*   By: kcarrero <kcarrero@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 18:54:55 by kcarrero          #+#    #+#             */
-/*   Updated: 2026/01/14 22:09:14 by kcarrero         ###   ########.fr       */
+/*   Updated: 2026/01/15 08:56:56 by kcarrero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,8 @@ void	execute_child(char *cmd, t_pipex *px)
 	exec = find_executable(args[0], px->envp);
 	if (!exec)
 	{
-		ft_printf("pipex: command not found %s\n", args[0]);
+		ft_putstr_fd("pipex: command not found: ", STDERR_FILENO);
+		ft_putendl_fd(args[0], STDERR_FILENO);
 		free_matrix(args);
 		exit(127);
 	}
