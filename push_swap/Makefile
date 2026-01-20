@@ -6,7 +6,18 @@ INCLUDES = -I includes -I libft/includes
 SRC_DIR = srcs
 OBJ_DIR = objs
 
-SRCS =
+SRCS = $(SRC_DIR)/main.c \
+		$(SRC_DIR)/parsing/parse_args.c \
+		$(SRC_DIR)/parsing/utils_args.c \
+		$(SRC_DIR)/stack/stack_init.c \
+		$(SRC_DIR)/stack/stack_utils.c \
+		$(SRC_DIR)/operations/swap.c \
+		$(SRC_DIR)/operations/push.c \
+		$(SRC_DIR)/operations/rotate.c \
+		$(SRC_DIR)/operations/reverse_rotate.c \
+		$(SRC_DIR)/sort/sort_small.c \
+		$(SRC_DIR)/sort/radix_sort.c \
+		$(SRC_DIR)/utils/error.c
 
 OBJS := $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 
