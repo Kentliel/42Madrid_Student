@@ -6,7 +6,7 @@
 /*   By: kcarrero <kcarrero@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/20 12:03:40 by kcarrero          #+#    #+#             */
-/*   Updated: 2026/01/20 13:09:14 by kcarrero         ###   ########.fr       */
+/*   Updated: 2026/01/20 13:57:16 by kcarrero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@
 
 typedef struct s_node
 {
-	int	value;
-	int	index;
-	struct	s_node	*next;
+	int				value;
+	int				index;
+	struct s_node	*next;
 }	t_node;
 
 typedef struct s_stack
