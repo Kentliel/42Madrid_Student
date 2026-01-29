@@ -6,7 +6,7 @@
 /*   By: kcarrero <kcarrero@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 20:19:39 by kcarrero          #+#    #+#             */
-/*   Updated: 2026/01/29 20:23:04 by kcarrero         ###   ########.fr       */
+/*   Updated: 2026/01/29 20:26:18 by kcarrero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,20 @@ int	is_number(char *str)
 	return (1);
 }
 
+int	is_duplicates(t_node *a)
+{
+	t_node *tmp;
 
+	while (a)
+	{
+		tmp = a->next;
+		while (tmp)
+		{
+			if (a->value == tmp->value)
+				return (1);
+			tmp = tmp-next;
+		}
+		a = a->nest;
+	}
+	return (0);
+}
