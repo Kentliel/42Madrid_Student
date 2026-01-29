@@ -6,7 +6,7 @@
 /*   By: kcarrero <kcarrero@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 22:40:41 by kcarrero          #+#    #+#             */
-/*   Updated: 2026/01/29 22:45:25 by kcarrero         ###   ########.fr       */
+/*   Updated: 2026/01/29 23:06:54 by kcarrero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	is_sorted(t_node *stack)
 
 void	free_stack(t_node **stack)
 {
-	t_node *tmp;
+	t_node	*tmp;
 
 	if (!stack)
 		return ;
