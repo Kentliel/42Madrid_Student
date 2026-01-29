@@ -13,6 +13,7 @@ LIBFT_FILES = ft_bzero.c\
         ft_isascii.c\
         ft_isdigit.c\
         ft_isprint.c\
+		ft_isspace.c\
         ft_memcpy.c\
         ft_memmove.c\
         ft_memset.c\
@@ -34,7 +35,9 @@ LIBFT_FILES = ft_bzero.c\
         ft_strjoin.c\
         ft_strtrim.c\
         ft_split.c\
+		ft_free_split.c\
         ft_itoa.c\
+		ft_atol.c\
         ft_strmapi.c\
         ft_striteri.c\
         ft_putchar_fd.c\
