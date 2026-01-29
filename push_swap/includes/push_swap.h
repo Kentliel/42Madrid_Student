@@ -6,7 +6,7 @@
 /*   By: kcarrero <kcarrero@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/20 12:03:40 by kcarrero          #+#    #+#             */
-/*   Updated: 2026/01/20 13:57:16 by kcarrero         ###   ########.fr       */
+/*   Updated: 2026/01/20 14:17:17 by kcarrero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ typedef struct s_stack
 
 void	parse_args(int argc, char **argv, t_stack *stack);
 int		is_number(char *str);
-int		has_duplicates(t_node *a);
+int		is_duplicates(t_node *a);
 void	free_and_exit(t_node **a, char *msg);
 
 /*Stacks*/
