@@ -6,7 +6,7 @@
 /*   By: kcarrero <kcarrero@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 23:22:07 by kcarrero          #+#    #+#             */
-/*   Updated: 2026/01/29 23:28:18 by kcarrero         ###   ########.fr       */
+/*   Updated: 2026/01/29 23:30:54 by kcarrero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static void	push_node(t_node **src, t_node **dst)
 	*dst = tmp;
 }
 
-void	pa(t_stack *stack, int	print)
+void	pa(t_stack *stack, int print)
 {
 	if (!stack->b)
 		return ;
@@ -35,7 +35,7 @@ void	pa(t_stack *stack, int	print)
 		ft_printf("pa\n");
 }
 
-void	pb(t_stack *stack, int	print)
+void	pb(t_stack *stack, int print)
 {
 	if (!stack->a)
 		return ;
