@@ -6,7 +6,7 @@
 /*   By: kcarrero <kcarrero@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/30 00:00:52 by kcarrero          #+#    #+#             */
-/*   Updated: 2026/01/30 00:10:42 by kcarrero         ###   ########.fr       */
+/*   Updated: 2026/01/30 01:26:09 by kcarrero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,10 @@ void	index_stack(t_stack *stack)
 		while (i < stack->size_a)
 		{
 			if (tmp->value == arr[i])
-				tmp->index = 1;
+			{
+				tmp->index = i;
+				break ;
+			}
 			i++;
 		}
 		tmp = tmp->next;
