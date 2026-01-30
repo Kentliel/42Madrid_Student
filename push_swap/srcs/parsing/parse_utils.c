@@ -6,7 +6,7 @@
 /*   By: kcarrero <kcarrero@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 20:19:39 by kcarrero          #+#    #+#             */
-/*   Updated: 2026/01/29 23:06:14 by kcarrero         ###   ########.fr       */
+/*   Updated: 2026/01/30 00:59:34 by kcarrero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int	is_duplicates(t_node *a)
 				return (1);
 			tmp = tmp->next;
 		}
-		a = a->nest;
+		a = a->next;
 	}
 	return (0);
 }

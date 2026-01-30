@@ -6,7 +6,7 @@
 /*   By: kcarrero <kcarrero@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 20:09:05 by kcarrero          #+#    #+#             */
-/*   Updated: 2026/01/29 20:18:19 by kcarrero         ###   ########.fr       */
+/*   Updated: 2026/01/30 00:59:10 by kcarrero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,6 @@ void	parse_args(int argc, char **argv, t_stack *stack)
 		ft_free_split(split);
 		i++;
 	}
-	if (has_duplicates(stack->a))
+	if (is_duplicates(stack->a))
 		error_exit(stack, "Error\n");
 }

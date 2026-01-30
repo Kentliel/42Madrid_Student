@@ -6,7 +6,7 @@
 /*   By: kcarrero <kcarrero@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/20 13:47:56 by kcarrero          #+#    #+#             */
-/*   Updated: 2026/01/20 13:56:11 by kcarrero         ###   ########.fr       */
+/*   Updated: 2026/01/30 00:58:24 by kcarrero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	main(int argc, char **argv)
 
 	if (argc < 2)
 		return (0);
-	int_stack(&stack);
+	init_stack(&stack);
 	parse_args(argc, argv, &stack);
 	if (is_sorted(stack.a))
 	{

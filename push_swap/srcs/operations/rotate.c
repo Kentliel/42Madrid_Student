@@ -6,7 +6,7 @@
 /*   By: kcarrero <kcarrero@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 23:32:01 by kcarrero          #+#    #+#             */
-/*   Updated: 2026/01/29 23:38:55 by kcarrero         ###   ########.fr       */
+/*   Updated: 2026/01/30 01:00:11 by kcarrero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static void	rotate_stack(t_node **stack)
 
 void	ra(t_stack *stack, int print)
 {
-	rotete_stack(&stack->a);
+	rotate_stack(&stack->a);
 	if (print)
 		ft_printf("ra\n");
 }

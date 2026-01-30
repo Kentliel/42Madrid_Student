@@ -6,7 +6,7 @@
 /*   By: kcarrero <kcarrero@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 20:30:19 by kcarrero          #+#    #+#             */
-/*   Updated: 2026/01/29 23:03:24 by kcarrero         ###   ########.fr       */
+/*   Updated: 2026/01/30 00:57:22 by kcarrero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ long	ft_atol(const char *str)
 			return (LONG_MAX);
 		if (ov == -1)
 			return (LONG_MIN);
-		res = res * 10 + (str[i] - '0');
+		result = result * 10 + (str[i] - '0');
 		i++;
 	}
 	return (result * sign);
