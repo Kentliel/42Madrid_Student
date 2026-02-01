@@ -6,7 +6,7 @@
 /*   By: kcarrero <kcarrero@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/30 00:00:52 by kcarrero          #+#    #+#             */
-/*   Updated: 2026/01/30 01:26:09 by kcarrero         ###   ########.fr       */
+/*   Updated: 2026/02/01 12:19:37 by kcarrero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,37 +39,47 @@ static void	sort_array(int	*arr, int size)
 	}
 }
 
-void	index_stack(t_stack *stack)
+static void	fill_array(t_node *a, int *arr)
 {
-	t_node	*tmp;
-	int		*arr;
-	int		i;
+	int	i;
 
-	arr = (int *)malloc(sizeof(int) * stack->size_a);
-	if (!arr)
-		error_exit(stack, "Error\n");
-	tmp = stack->a;
 	i = 0;
-	while (tmp)
+	while (a)
 	{
-		arr[i++] = tmp->value;
-		tmp = tmp->next;
+		arr[i++] = a->value;
+		a = a->next;
 	}
-	sort_array(arr, stack->size_a);
-	tmp = stack->a;
-	while (tmp)
+}
+
+static void	assign_indexes(t_node *a, int *arr, int size)
+{
+	int	i;
+
+	while (a)
 	{
 		i = 0;
-		while (i < stack->size_a)
+		while (i < size)
 		{
-			if (tmp->value == arr[i])
+			if (a->value == arr[i])
 			{
-				tmp->index = i;
+				a->index = i;
 				break ;
 			}
 			i++;
 		}
-		tmp = tmp->next;
+		a = a->next;
 	}
+}
+
+void	index_stack(t_stack *stack)
+{
+	int		*arr;
+
+	arr = (int *)malloc(sizeof(int) * stack->size_a);
+	if (!arr)
+		error_exit(stack, "Error\n");
+	fill_array(stack->a, arr);
+	sort_array(arr, stack->size_a);
+	assign_indexes(stack->a, arr, stack->size_a);
 	free(arr);
 }
