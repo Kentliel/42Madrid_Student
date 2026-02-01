@@ -18,6 +18,8 @@ SRCS = $(SRC_DIR)/main.c \
 		$(SRC_DIR)/sort/index_stack.c\
 		$(SRC_DIR)/sort/sort_small.c \
 		$(SRC_DIR)/sort/radix_sort.c\
+		$(SRC_DIR)/sort/chunk_sort.c\
+		$(SRC_DIR)/sort/chunk_utils.c\
 		$(SRC_DIR)/utils/error_exit.c
 
 OBJS := $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)

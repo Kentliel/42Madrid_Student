@@ -6,7 +6,7 @@
 /*   By: kcarrero <kcarrero@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/20 13:47:56 by kcarrero          #+#    #+#             */
-/*   Updated: 2026/01/30 00:58:24 by kcarrero         ###   ########.fr       */
+/*   Updated: 2026/02/01 13:44:12 by kcarrero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	main(int argc, char **argv)
 	if (stack.size_a <= 5)
 		sort_small(&stack);
 	else
-		radix_sort(&stack);
+		chunk_sort(&stack);
 	free_stack(&stack.a);
 	free_stack(&stack.b);
 	return (0);

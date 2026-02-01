@@ -6,7 +6,7 @@
 /*   By: kcarrero <kcarrero@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/20 12:03:40 by kcarrero          #+#    #+#             */
-/*   Updated: 2026/01/30 01:05:21 by kcarrero         ###   ########.fr       */
+/*   Updated: 2026/02/01 13:43:45 by kcarrero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,11 @@ void	sort_small(t_stack *stack);
 
 //Radix
 void	radix_sort(t_stack *stack);
+
+//Chunk
+void	chunk_sort(t_stack *stack);
+int		find_max_index(t_node *stack);
+int		get_pos_of_index(t_node *stack, int index);
 
 /*Utils*/
 
