@@ -6,7 +6,7 @@
 /*   By: kcarrero <kcarrero@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/30 00:16:02 by kcarrero          #+#    #+#             */
-/*   Updated: 2026/01/30 00:29:41 by kcarrero         ###   ########.fr       */
+/*   Updated: 2026/02/01 21:44:15 by kcarrero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ static int	min_index_pos(t_node *a)
 static void	push_min_to_b(t_stack *stack)
 {
 	int	pos;
+	int	rot;
 
 	pos = min_index_pos(stack->a);
 	if (pos <= stack->size_a / 2)
@@ -79,7 +80,8 @@ static void	push_min_to_b(t_stack *stack)
 	}
 	else
 	{
-		while (pos++ < stack->size_a)
+		rot = stack->size_a - pos;
+		while (rot-- > 0)
 			rra(stack, 1);
 	}
 	pb(stack, 1);

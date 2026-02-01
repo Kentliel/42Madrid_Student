@@ -6,7 +6,7 @@
 /*   By: kcarrero <kcarrero@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/01 13:32:27 by kcarrero          #+#    #+#             */
-/*   Updated: 2026/02/01 13:55:10 by kcarrero         ###   ########.fr       */
+/*   Updated: 2026/02/01 21:49:56 by kcarrero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,11 @@ static void	bring_max_to_top_b(t_stack *stack, int max)
 	if (pos < 0)
 		return ;
 	if (pos <= stack->size_b / 2)
+	{
+		while (stack->b && stack->b->index != max)
+			rb(stack, 1);
+	}
+	else
 	{
 		while (stack->b && stack->b->index != max)
 			rrb(stack, 1);
