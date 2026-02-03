@@ -6,7 +6,7 @@
 /*   By: kcarrero <kcarrero@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 20:09:05 by kcarrero          #+#    #+#             */
-/*   Updated: 2026/02/03 12:27:13 by kcarrero         ###   ########.fr       */
+/*   Updated: 2026/02/03 13:05:07 by kcarrero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ static void	parse_one_arg(t_stack *stack, char *arg)
 	j = 0;
 	while (split[j])
 	{
-		if (!add_number(stack, "Error\n"))
+		if (!add_number(stack, split[j]))
 		{
 			ft_free_split(split);
 			error_exit(stack, "Error\n");
