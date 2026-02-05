@@ -1,44 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fizz_buzz.c                                        :+:      :+:    :+:   */
+/*   ft_swap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kcarrero <kcarrero@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/04 14:03:40 by kcarrero          #+#    #+#             */
-/*   Updated: 2026/02/05 13:32:40 by kcarrero         ###   ########.fr       */
+/*   Created: 2026/02/05 14:04:20 by kcarrero          #+#    #+#             */
+/*   Updated: 2026/02/05 14:10:15 by kcarrero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-static void	ft_putnbr(int n)
+void	ft_swap(int *a, int *b)
 {
-	char	c;
+	int	tmp;
 
-	if (n >= 10)
-		ft_putnbr(n / 10);
-	c = (n % 10) + '0';
-	write(1, &c, 1);
-}
-
-int	main (void)
-{
-	int	i;
-
-	i = 1;
-	while (i <= 100)
-	{
-		if ((i % 3 == 0) && (i % 5 == 0))
-			write(1, "fizzbuzz", 8);
-		else if (i % 3 == 0)
-			write(1, "fizz", 4);
-		else if (i % 5 == 0)
-			write(1, "buzz", 4);
-		else
-			ft_putnbr(i);
-		write(1, "\n", 1);
-		i++;
-	}
-	return (0);
+	if (!a || !b)
+		return ;
+	tmp = *a;
+	*a = *b;
+	*b = tmp;
 }

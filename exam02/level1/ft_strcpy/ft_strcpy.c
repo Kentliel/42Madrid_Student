@@ -1,44 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fizz_buzz.c                                        :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kcarrero <kcarrero@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/04 14:03:40 by kcarrero          #+#    #+#             */
-/*   Updated: 2026/02/05 13:32:40 by kcarrero         ###   ########.fr       */
+/*   Created: 2026/02/05 13:53:12 by kcarrero          #+#    #+#             */
+/*   Updated: 2026/02/05 13:56:06 by kcarrero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-static void	ft_putnbr(int n)
+char    *ft_strcpy(char *s1, char *s2)
 {
-	char	c;
+	int i;
 
-	if (n >= 10)
-		ft_putnbr(n / 10);
-	c = (n % 10) + '0';
-	write(1, &c, 1);
-}
-
-int	main (void)
-{
-	int	i;
-
-	i = 1;
-	while (i <= 100)
+	if (!s2)
+		return (NULL);
+	i = 0;
+	while (s2[i] != '\0')
 	{
-		if ((i % 3 == 0) && (i % 5 == 0))
-			write(1, "fizzbuzz", 8);
-		else if (i % 3 == 0)
-			write(1, "fizz", 4);
-		else if (i % 5 == 0)
-			write(1, "buzz", 4);
-		else
-			ft_putnbr(i);
-		write(1, "\n", 1);
+		s1[i] = s2[i];
 		i++;
 	}
-	return (0);
-}
+	s1[i] = '\0';
+	return (s1);
+ }
+

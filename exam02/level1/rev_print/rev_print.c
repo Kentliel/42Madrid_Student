@@ -1,44 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fizz_buzz.c                                        :+:      :+:    :+:   */
+/*   rev_print.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kcarrero <kcarrero@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/04 14:03:40 by kcarrero          #+#    #+#             */
-/*   Updated: 2026/02/05 13:32:40 by kcarrero         ###   ########.fr       */
+/*   Created: 2026/02/05 16:18:56 by kcarrero          #+#    #+#             */
+/*   Updated: 2026/02/05 16:32:11 by kcarrero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-static void	ft_putnbr(int n)
-{
-	char	c;
-
-	if (n >= 10)
-		ft_putnbr(n / 10);
-	c = (n % 10) + '0';
-	write(1, &c, 1);
-}
-
-int	main (void)
+int	main(int argc, char **argv)
 {
 	int	i;
 
-	i = 1;
-	while (i <= 100)
-	{
-		if ((i % 3 == 0) && (i % 5 == 0))
-			write(1, "fizzbuzz", 8);
-		else if (i % 3 == 0)
-			write(1, "fizz", 4);
-		else if (i % 5 == 0)
-			write(1, "buzz", 4);
-		else
-			ft_putnbr(i);
-		write(1, "\n", 1);
+	if (argc != 2)
+		return (write(1, "\n", 1));
+	i = 0;
+	while (argv[1][i])
 		i++;
-	}
+	i--;
+	while (i >= 0)
+		write(1, &argv[1][i--], 1);
+	write(1, "\n", 1);
 	return (0);
 }
