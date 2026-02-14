@@ -1,44 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fizz_buzz.c                                        :+:      :+:    :+:   */
+/*   ulstr.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kcarrero <kcarrero@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/04 14:03:40 by kcarrero          #+#    #+#             */
-/*   Updated: 2026/02/14 15:01:38 by kcarrero         ###   ########.fr       */
+/*   Created: 2026/02/14 14:48:56 by kcarrero          #+#    #+#             */
+/*   Updated: 2026/02/14 14:56:49 by kcarrero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-static void	ft_putnbr(int n)
+int	main(int argc, char **argv)
 {
+	int		i;
 	char	c;
 
-	if (n >= 10)
-		ft_putnbr(n / 10);
-	c = (n % 10) + '0';
-	write(1, &c, 1);
-}
-
-int	main(void)
-{
-	int	i;
-
-	i = 1;
-	while (i <= 100)
+	if (argc != 2)
+		return (write(1, "\n", 1));
+	i = 0;
+	while (argv[1][i])
 	{
-		if ((i % 3 == 0) && (i % 5 == 0))
-			write(1, "fizzbuzz", 8);
-		else if (i % 3 == 0)
-			write(1, "fizz", 4);
-		else if (i % 5 == 0)
-			write(1, "buzz", 4);
-		else
-			ft_putnbr(i);
-		write(1, "\n", 1);
+		c = argv[1][i];
+		if (c >= 'a' && c <= 'z')
+			c = c - 32;
+		else if (c >= 'A' && c <= 'Z')
+			c = c + 32;
+		write(1, &c, 1);
 		i++;
 	}
+	write(1, "\n", 1);
 	return (0);
 }

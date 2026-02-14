@@ -6,15 +6,15 @@
 /*   By: kcarrero <kcarrero@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/05 13:53:12 by kcarrero          #+#    #+#             */
-/*   Updated: 2026/02/05 13:56:06 by kcarrero         ###   ########.fr       */
+/*   Updated: 2026/02/14 15:01:03 by kcarrero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-char    *ft_strcpy(char *s1, char *s2)
+char	*ft_strcpy(char *s1, char *s2)
 {
-	int i;
+	int	i;
 
 	if (!s2)
 		return (NULL);
@@ -26,5 +26,4 @@ char    *ft_strcpy(char *s1, char *s2)
 	}
 	s1[i] = '\0';
 	return (s1);
- }
-
+}
