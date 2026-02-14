@@ -6,7 +6,7 @@
 /*   By: kcarrero <kcarrero@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/07 15:01:13 by kcarrero          #+#    #+#             */
-/*   Updated: 2026/02/07 15:48:50 by kcarrero         ###   ########.fr       */
+/*   Updated: 2026/02/14 14:43:11 by kcarrero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,9 @@ int	main(int argc, char **argv)
 		c = argv[1][i];
 		if (c == argv[2][0])
 			c = argv[3][0];
+		write(1, &c, 1);
+		i++;
 	}
+	write(1, "\n", 1);
+	return (0);
 }
