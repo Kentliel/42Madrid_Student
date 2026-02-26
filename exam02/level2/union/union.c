@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   snake_to_camel.c                                   :+:      :+:    :+:   */
+/*   union.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kcarrero <kcarrero@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/26 13:12:39 by kcarrero          #+#    #+#             */
-/*   Updated: 2026/02/26 14:20:29 by kcarrero         ###   ########.fr       */
+/*   Created: 2026/02/26 13:57:35 by kcarrero          #+#    #+#             */
+/*   Updated: 2026/02/26 14:26:42 by kcarrero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,30 +15,31 @@
 int	main(int argc, char **argv)
 {
 	int	i;
-	int	upper;
+	int	j;
+	int	seen[256] = {0};
 
-	if (argc != 2)
-		return (0);
+	if (argc != 3)
+		return (write(1, "\n", 1));
 	i = 0;
-	upper = 0;
 	while (argv[1][i])
 	{
-		if (argv[1][i] == '_')
-		{
-			upper = 1;
-			continue;
-		}
-		else if ((upper == 1) && (argv[1][i] >= 'a' && argv[1][i] <= 'z'))
-		{
-			write(1, &(argv[1][i] - 32), 1);
-			upper = 0;
-			continue;
-		}
-		else
+		if (seen[(unsigned char)argv[1][i]] == 0)
 		{
 			write(1, &argv[1][i], 1);
+			seen[(unsigned char)argv[1][i]] = 1;
 		}
 		i++;
 	}
+	j = 0;
+	while (argv[2][j])
+	{
+		if (seen[(unsigned char)argv[2][j]] == 0)
+		{
+			write(1, &argv[2][j], 1);
+			seen[(unsigned char)argv[2][j]] = 1;
+		}
+		j++;
+	}
+	write(1, "\n", 1);
 	return (0);
 }
