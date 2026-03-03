@@ -6,7 +6,7 @@
 /*   By: kcarrero <kcarrero@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 15:26:24 by kcarrero          #+#    #+#             */
-/*   Updated: 2026/02/20 01:08:06 by kcarrero         ###   ########.fr       */
+/*   Updated: 2026/03/03 15:30:54 by kcarrero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,9 @@ static void	ft_putstr(char *str)
 }*/
 
 void    ft_list_foreach(t_list *begin_list, void (*f)(void *))
-{
-	//t_list	*tmp;
-
+}
 	while (begin_list != NULL)
 	{
-		//tmp = begin_list;
 		(*f)(begin_list->data);
 		begin_list = begin_list->next;
 	}
