@@ -6,19 +6,19 @@
 /*   By: kcarrero <kcarrero@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/03 15:22:47 by kcarrero          #+#    #+#             */
-/*   Updated: 2026/03/03 15:29:59 by kcarrero         ###   ########.fr       */
+/*   Updated: 2026/03/04 22:12:02 by kcarrero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "flood_fill.h"
 
-static void	fill(char **tab, t_point_size, int x, int y, char target)
+static void	fill(char **tab, t_point size, int x, int y, char target)
 {
 	if (x < 0 || y < 0 || x >= size.x || y >= size.y)
 		return ;
-	if (tab[y][x] != target || tab[y][x] == 'F')
+	if (tab[y][x] != target)
 		return ;
-	tab[y][x] = 'F'''';
+	tab[y][x] = 'F';
 	fill(tab, size, x + 1, y, target);
 	fill(tab, size, x - 1, y, target);
 	fill(tab, size, x, y + 1, target);
