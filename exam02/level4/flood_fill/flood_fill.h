@@ -1,4 +1,4 @@
-#ifdef FLOOD_FILL_H
+#ifndef FLOOD_FILL_H
 # define FLOOD_FILL_H
 
 typedef struct s_point
