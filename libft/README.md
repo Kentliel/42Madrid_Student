@@ -1,115 +1,163 @@
-Libft
+# Libft
 Este proyecto ha sido creado como parte del currículo de 42 por kcarrero
 
-Description / Descripción
+## Description / Descripción
+
 Libft is the first project at 42. Its goal is to create a static library containing a collection of re-implemented standard C functions, as well as additional functions that will be useful throughout the entire curriculum.
 Understanding how these functions work under the hood is crucial for mastering memory management and data manipulation in C. This library serves as the foundation for all subsequent projects.
 
 Libft es el primer proyecto de 42. Su objetivo es crear una librería estática que contiene una colección de funciones estándar de C re-implementadas, así como funciones adicionales que serán útiles a lo largo de todo el currículo.
 Comprender cómo funcionan estas funciones internamente es crucial para dominar la gestión de memoria y la manipulación de datos en C. Esta librería sirve como base para todos los proyectos posteriores.
 
-Instructions / Instrucciones
-To compile the library:
+## Instructions / Instrucciones
+
+To compile the library (libft.a) / Para compilar la librería (libft.a):
 
 Bash
+```
 make
-To compile including bonus functions (linked lists):
+```
+---
+To compile including bonus functions (linked lists) / Para compilar incluyendo las funciones bonus (listas enlazadas):
 
 Bash
+```
 make bonus
-To recompile:
+```
+---
+To recompile everything from scratch / Para recompilar todo desde cero::
 
 Bash
+```
 make re
-To delete compiled objects (.o):
+```
+---
+To delete compiled objects (.o) / Para borrar los archivos objeto (.o):
 
 Bash
+```
 make clean
-To delete everything (objects and .a):
+```
+---
+To delete everything (objects and .a) / Para borrar los archivos objeto y el archivo de la librería (libft.a):
 
 Bash
+```
 make fclean
-Para compilar la librería:
+```
+---
 
-Bash
-make
-Para compilar incluyendo las funciones bonus (listas enlazadas):
+## Functions / Funciones
 
-Bash
-make bonus
-Para recompilar:
+### 🟢 Part 1: Libc Functions (Standard)
 
-Bash
-make re
-Para borrar contenido compilado:
+| Function  | Description |
+| ------------- |:-------------:|
+| Memory     | `ft_memset`, `ft_bzero`, `ft_memcpy`, `ft_memmove`, `ft_memchr`, `ft_memcmp`, `ft_calloc`     |
+| Strings      | `ft_strlen`, `ft_strlcpy`, `ft_strlcat`, `ft_strchr`, `ft_strrchr`, `ft_strncmp`, `ft_strnstr`, `ft_strdup`     |
+| Is/To      | `ft_isalpha`, `ft_isdigit`, `ft_isalnum`, `ft_isascii`, `ft_isprint`, `ft_toupper`, `ft_tolower`     |
+| Conversion      | `ft_atoi`     |
 
-Bash
-make clean
-Para borrar todo:
+### 🟡 Part 2: Additional Functions
 
-Bash
-make fclean
+| Function  | Description |
+| ------------- |:-------------:|
+| String Manipulation     | `ft_substr`, `ft_strjoin`, `ft_strtrim`, `ft_split`, `ft_strmapi`, `ft_striteri`     |
+| Conversion      | `ft_itoa`     |
+| File Descriptors      | `ft_putchar_fd`, `ft_putstr_fd`, `ft_putendl_fd`, `ft_putnbr_fd`     |
 
-Functions / Funciones
-🟢 Part 1: Libc Functions (Standard)
+### 🔵 Bonus: Linked Lists
 
-Function,Relevancia / Relevance
-"ft_memset, ft_bzero, ft_memcpy, ft_memmove",Gestión directa de bloques de memoria. / Direct memory block management.
-"ft_memchr, ft_memcmp",Búsqueda y comparación de bytes. / Byte searching and comparison.
-"ft_strlen, ft_strlcpy, ft_strlcat",Manipulación básica de strings y seguridad de buffers. / Basic string manipulation and buffer safety.
-"ft_strchr, ft_strrchr, ft_strnstr, ft_strncmp",Búsqueda y comparación de cadenas de texto. / String searching and comparison.
-"ft_isalpha, ft_isdigit, ft_isalnum, ft_isascii, ft_isprint",Clasificación de caracteres (ASCII). / Character classification (ASCII).
-"ft_toupper, ft_tolower",Conversión de mayúsculas/minúsculas. / Uppercase/lowercase conversion.
-ft_atoi,Conversión de string a entero (fundamental para input). / String to integer conversion (key for input).
-"ft_calloc, ft_strdup",Reserva de memoria dinámica segura (Heap). / Safe dynamic memory allocation (Heap).
+| Function      | Description     |
+| ------------- |:-------------:|
+| structure `t_list`      | `ft_lstnew`, `ft_lstadd_front`, `ft_lstsize`, `ft_lstlast`, `ft_lstadd_back`, `ft_lstdelone`, `ft_lstclear`, `ft_lstiter`, `ft_lstmap`     |
 
-🟡 Part 2: Additional Functions
+## Resources / Recursos
 
-Function,Relevancia / Relevance
-"ft_substr, ft_strjoin, ft_strtrim",Creación y recorte de nuevas cadenas de texto. / Creation and trimming of new strings.
-ft_split,División de strings por delimitador (Crucial en parsing). / String splitting by delimiter (Crucial for parsing).
-ft_itoa,Conversión de entero a string. / Integer to string conversion.
-"ft_strmapi, ft_striteri",Aplicación de funciones a cada carácter de un string. / Applying functions to each character of a string.
-"ft_putchar_fd, ft_putstr_fd, ft_putendl_fd, ft_putnbr_fd",Salida de datos utilizando File Descriptors. / Data output using File Descriptors.
+* C Programming & Data Structures
+* Dynamic Memory Allocation:
 
-🔵 Bonus: Linked Lists (Listas Enlazadas)
-Functions: ft_lstnew, ft_lstadd_front, ft_lstsize, ft_lstlast, ft_lstadd_back, ft_lstdelone, ft_lstclear, ft_lstiter, ft_lstmap.
+Linked Lists:
+![explicacion](https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcS4kDWRkCx3Vz2Ra8IZ2IbrdEv_KY-0mYlDswys95986I8pkaBxaexyieECx-dkKyfBdh0TVMSg_f7F0iN9fROOvM6WVeBhc9JX_NrDeOm1Zd9k0WY)
 
-Relevance: These functions allow managing dynamic data structures, essential for projects like push_swap or minishell.
+<details>
+<summary>Overview</summary>
 
-Relevancia: Estas funciones permiten gestionar estructuras de datos dinámicas, esenciales para proyectos como push_swap o minishell.
+- The visualization uses block diagrams to illustrate the concept of redundancy in engineering and system design. Redundancy is the duplication of critical components or functions of a system with the intention of increasing reliability. These diagrams contrast a simple serial system with a more resilient parallel system.
 
-Resources / Recursos
-C Programming
-C Library Functions: https://www.tutorialspoint.com/c_standard_library/index.htm
+</details>
 
-Memory Management: https://en.wikipedia.org/wiki/C_dynamic_memory_allocation
+<details>
+<summary>Serial System</summary>
 
-42 Documentation
-Libft subject (42 Intranet)
+- The top diagram depicts a serial system. In this configuration, components are arranged in a single line, where the output of one component becomes the input for the next. This type of system is vulnerable because the failure of any single component will cause the entire system to fail.
 
-Norminette rules
+</details>
 
-Use of Artificial Intelligence / Uso de Inteligencia Artificial
+<details>
+<summary>Parallel System Introduction</summary>
+
+- The bottom diagram introduces a parallel system, demonstrating a method to enhance reliability. Unlike the serial system, this design provides alternative paths for the process to continue. The white arrows indicate that the components from the serial system have been rearranged into a new configuration.
+
+</details>
+
+<details>
+<summary>Parallel Redundancy</summary>
+
+- Specifically, components 1 and 2 are now in a parallel arrangement. This means that if one of these components fails, the system can continue to function using the other. This is a common form of redundancy used to protect against single points of failure for critical functions at the beginning of a process.
+
+</details>
+
+<details>
+<summary>Another Parallel Group</summary>
+
+- Similarly, components 3 and 5 are also arranged in parallel. This redundancy ensures that the system can continue to operate even if one of these components fails. The system has multiple layers of protection.
+
+</details>
+
+<details>
+<summary>System Resilience in Action</summary>
+
+- The crossed-out block labeled '4' illustrates the resilience of the parallel system. Despite the failure of this component, the overall system can still function because there are alternative paths available. This highlights the key benefit of redundancy: increased system availability and fault tolerance.
+
+</details>
+
+* Makefiles: https://www.gnu.org/software/make/manual/make.html
+* C Library Functions: https://www.tutorialspoint.com/c_standard_library/index.htm
+* Memory Management: https://en.wikipedia.org/wiki/C_dynamic_memory_allocation
+
+* 42 Documentation
+* Libft subject (42 Intranet)
+* Norminette: Code style compliance.
+
+* Static Libraries: Understanding `ar rcs` and indexing.
+
+## Use of Artificial Intelligence / Uso de Inteligencia Artificial
+
 AI tools (ChatGPT/Gemini) were used as a learning and assistance resource during the development of this project. Specifically, AI was used to:
 
-Clarify logic for complex functions like ft_split or ft_memmove.
+* Clarify logic for complex functions like `ft_split`.
 
-Help debug edge cases (Null pointers, empty strings).
+* Help debug edge cases and memory management.
 
-Review memory management and prevent potential leaks.
-All final implementation and understanding of the code were performed by the author.
+* Review the structure of the `Makefile`.
 
+**All final implementation and understanding of the code were performed by the author.**
+
+---
 Se utilizaron herramientas de IA (ChatGPT/Gemini) como recurso de aprendizaje y asistencia durante el desarrollo de este proyecto. En concreto, la IA se utilizó para:
 
-Aclarar la lógica de funciones complejas como ft_split o ft_memmove.
+* Aclarar la lógica de funciones complejas como `ft_split`.
 
-Ayudar a depurar casos límite (Punteros nulos, strings vacíos).
+* Ayudar a depurar casos límite y gestión de memoria.
 
-Revisar la gestión de memoria y evitar posibles fugas (leaks).
-Toda la implementación final y la comprensión del código fueron realizadas por el autor.
+* Revisar la estructura del `Makefile`.
 
-Extras
+**Toda la implementación final y la comprensión del código fueron realizadas por el autor.**
+
+## Extras
+
 Linked lists in C: https://www.geeksforgeeks.org/linked-list-set-1-introduction/
 
 File Descriptors explained: https://en.wikipedia.org/wiki/File_descriptor
+
