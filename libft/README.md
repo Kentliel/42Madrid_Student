@@ -58,6 +58,148 @@ make fclean
 | Is/To      | `ft_isalpha`, `ft_isdigit`, `ft_isalnum`, `ft_isascii`, `ft_isprint`, `ft_toupper`, `ft_tolower`     |
 | Conversion      | `ft_atoi`     |
 
+#### Memoria (Memory)
+
+<details>
+<summary>ft_memset</summary>
+
+- Llena un bloque de memoria con un byte específico.
+- Fills a block of memory with a specific byte.
+
+</details>
+
+<details>
+<summary>ft_bzero</summary>
+
+- Pone a cero (nulos) un bloque de memoria. 
+- Sets a block of memory to zero (nulls).
+</details>
+
+<details>
+<summary>ft_memcpy</summary>
+
+- Copia un área de memoria a otra (sin solapamiento). 
+- Copies one area of memory to another (without overlap).
+</details>
+
+<details>
+<summary>ft_memmove</summary>
+
+- Copia memoria de forma segura incluso si las áreas se solapan. 
+- Copies memory safely even if the areas overlap.
+</details>
+
+<details>
+<summary>ft_memchr</summary>
+
+- Busca un carácter específico dentro de un bloque de memoria. 
+- Searches for a specific character within a block of memory.
+</details>
+
+<details>
+<summary>ft_memcmp</summary>
+
+- Compara dos bloques de memoria byte a byte. 
+- Compares two blocks of memory byte by byte.
+</details>
+
+<details>
+<summary>ft_calloc</summary>
+
+- Reserva memoria en el heap y la inicializa a cero. 
+- Allocates memory on the heap and initialises it to zero.
+</details>
+
+
+#### Cadenas (Strings)
+
+<details>
+<summary>ft_strlen</summary>
+
+- Calcula la longitud de una cadena (sin contar el nulo). 
+- Calculates the length of a string (excluding the null terminator).
+</details>
+
+<details>
+<summary>ft_strlcpy</summary>
+
+- Copia una cadena a un tamaño de buffer específico (segura). 
+- Copies a string to a buffer of a specific size (safe).
+</details>
+
+<details>
+<summary>ft_strlcat</summary>
+
+- Concatena cadenas garantizando la terminación en nulo. 
+- Concatenates strings, ensuring null termination.
+</details>
+
+<details>
+<summary>ft_strchr</summary>
+
+- Busca la primera aparición de un carácter en una cadena. 
+- Finds the first occurrence of a character in a string.
+</details>
+
+<details>
+<summary>ft_strrchr</summary>
+
+- Busca la última aparición de un carácter en una cadena. 
+- Finds the last occurrence of a character in a string.
+</details>
+
+<details>
+<summary>ft_strncmp</summary>
+
+- Compara dos cadenas hasta un número n de caracteres. 
+- Compares two strings up to a specified number of characters.
+</details>
+
+<details>
+<summary>ft_strnstr</summary>
+
+- Busca una subcadena dentro de otra, limitando la búsqueda. 
+- Finds a substring within another, limiting the search.
+</details>
+
+<details>
+<summary>ft_strdup</summary>
+
+- Duplica una cadena reservando nueva memoria con `malloc`. 
+- Duplicates a string by allocating new memory with `malloc`.
+</details>
+
+
+#### Clasificación y Conversión (Is/To & Conversion)
+
+<details>
+<summary>ft_isalpha / ft_isdigit / ft_isalnum</summary>
+
+- Verifica si es letra, número o ambos. 
+- Checks whether a character is a letter, a digit, or both.
+</details>
+
+<details>
+<summary>ft_isascii / ft_isprint</summary>
+
+- Verifica si es un carácter ASCII o si es imprimible. 
+- Checks whether a character is ASCII or printable.
+</details>
+
+<details>
+<summary>ft_toupper / ft_tolower</summary>
+
+- Convierte caracteres a mayúsculas o minúsculas. 
+- Converts characters to uppercase or lowercase.
+</details>
+
+<details>
+<summary>ft_atoi</summary>
+
+- Convierte una cadena de caracteres (ASCII) a un número entero (int). 
+- Converts a character string (ASCII) to an integer (int).
+</details>
+
 ### 🟡 Part 2: Additional Functions
 
 | Function  | Description |
@@ -160,4 +302,5 @@ Se utilizaron herramientas de IA (ChatGPT/Gemini) como recurso de aprendizaje y 
 Linked lists in C: https://www.geeksforgeeks.org/linked-list-set-1-introduction/
 
 File Descriptors explained: https://en.wikipedia.org/wiki/File_descriptor
+
 
