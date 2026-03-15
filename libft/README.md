@@ -226,6 +226,7 @@ Linked Lists:
 <summary>Overview</summary>
 
 - The visualization uses block diagrams to illustrate the concept of redundancy in engineering and system design. Redundancy is the duplication of critical components or functions of a system with the intention of increasing reliability. These diagrams contrast a simple serial system with a more resilient parallel system.
+- La visualización utiliza diagramas de bloques para ilustrar el concepto de redundancia en ingeniería y diseño de sistemas. La redundancia consiste en la duplicación de componentes o funciones críticos de un sistema con el fin de aumentar su fiabilidad. Estos diagramas comparan un sistema en serie sencillo con un sistema en paralelo más resistente.
 
 </details>
 
@@ -233,6 +234,7 @@ Linked Lists:
 <summary>Serial System</summary>
 
 - The top diagram depicts a serial system. In this configuration, components are arranged in a single line, where the output of one component becomes the input for the next. This type of system is vulnerable because the failure of any single component will cause the entire system to fail.
+- El diagrama superior representa un sistema en serie. En esta configuración, los componentes se disponen en una sola línea, donde la salida de un componente se convierte en la entrada del siguiente. Este tipo de sistema es vulnerable porque el fallo de un solo componente provocará el fallo de todo el sistema.
 
 </details>
 
@@ -240,6 +242,7 @@ Linked Lists:
 <summary>Parallel System Introduction</summary>
 
 - The bottom diagram introduces a parallel system, demonstrating a method to enhance reliability. Unlike the serial system, this design provides alternative paths for the process to continue. The white arrows indicate that the components from the serial system have been rearranged into a new configuration.
+- El diagrama inferior presenta un sistema paralelo, mostrando un método para mejorar la fiabilidad. A diferencia del sistema en serie, este diseño ofrece rutas alternativas para que el proceso continúe. Las flechas blancas indican que los componentes del sistema en serie se han reorganizado en una nueva configuración.
 
 </details>
 
@@ -247,6 +250,7 @@ Linked Lists:
 <summary>Parallel Redundancy</summary>
 
 - Specifically, components 1 and 2 are now in a parallel arrangement. This means that if one of these components fails, the system can continue to function using the other. This is a common form of redundancy used to protect against single points of failure for critical functions at the beginning of a process.
+- Concretamente, los componentes 1 y 2 se encuentran ahora en una disposición paralela. Esto significa que, si uno de estos componentes falla, el sistema puede seguir funcionando utilizando el otro. Se trata de una forma común de redundancia utilizada para proteger contra puntos únicos de fallo en funciones críticas al inicio de un proceso.
 
 </details>
 
@@ -254,6 +258,7 @@ Linked Lists:
 <summary>Another Parallel Group</summary>
 
 - Similarly, components 3 and 5 are also arranged in parallel. This redundancy ensures that the system can continue to operate even if one of these components fails. The system has multiple layers of protection.
+- Del mismo modo, los componentes 3 y 5 también están dispuestos en paralelo. Esta redundancia garantiza que el sistema pueda seguir funcionando incluso si uno de estos componentes falla. El sistema cuenta con múltiples capas de protección.
 
 </details>
 
@@ -261,6 +266,7 @@ Linked Lists:
 <summary>System Resilience in Action</summary>
 
 - The crossed-out block labeled '4' illustrates the resilience of the parallel system. Despite the failure of this component, the overall system can still function because there are alternative paths available. This highlights the key benefit of redundancy: increased system availability and fault tolerance.
+- El bloque tachado etiquetado como «4» ilustra la resiliencia del sistema paralelo. A pesar del fallo de este componente, el sistema en su conjunto puede seguir funcionando porque hay rutas alternativas disponibles. Esto pone de relieve la ventaja clave de la redundancia: una mayor disponibilidad del sistema y tolerancia a fallos.
 
 </details>
 
@@ -302,5 +308,6 @@ Se utilizaron herramientas de IA (ChatGPT/Gemini) como recurso de aprendizaje y 
 Linked lists in C: https://www.geeksforgeeks.org/linked-list-set-1-introduction/
 
 File Descriptors explained: https://en.wikipedia.org/wiki/File_descriptor
+
 
 
