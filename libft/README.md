@@ -208,6 +208,87 @@ make fclean
 | Conversion      | `ft_itoa`     |
 | File Descriptors      | `ft_putchar_fd`, `ft_putstr_fd`, `ft_putendl_fd`, `ft_putnbr_fd`     |
 
+#### Manipulación de Cadenas (String Manipulation)
+
+<details>
+<summary>ft_substr</summary>
+
+- Crea una subcadena a partir de un índice y longitud dados.
+- Creates a substring based on a given index and length.
+</details>
+
+<details>
+<summary>ft_strjoin</summary>
+
+- Une dos cadenas en una nueva cadena.
+- Join two strings into a new string.
+</details>
+
+<details>
+<summary>ft_strtrim</summary>
+
+- Elimina caracteres específicos del inicio y final de una cadena.
+- Removes specific characters from the start and end of a string.
+</details>
+
+<details>
+<summary>ft_split</summary>
+
+- Divide una cadena en un array de cadenas usando un delimitador.
+- Split a string into an array of strings using a delimiter.
+</details>
+
+<details>
+<summary>ft_strmapi</summary>
+
+- Crea una cadena aplicando una función a cada carácter de otra.
+- Create a string by applying a function to each character of another string.
+</details>
+
+<details>
+<summary>ft_striteri</summary>
+
+- Aplica una función a cada carácter de una cadena (`por referencia`).
+- Applies a function to each character in a string (`by reference`).
+</details>
+
+#### Conversión y Salida (Conversion & File Descriptors)
+
+<details>
+<summary>ft_itoa</summary>
+
+- Convierte un número entero (`int`) a una cadena de caracteres.
+- Converts an integer (`int`) to a string.
+</details>
+
+<details>
+<summary>ft_putchar_fd</summary>
+
+- Escribe un carácter en el File Descriptor (`FD`) dado.
+- Writes a character to the given file descriptor (`FD`).
+</details>
+
+<details>
+<summary>ft_putstr_fd</summary>
+
+- Escribe una cadena en el `FD` dado.
+- Write a string to the given file descriptor (`FD`).
+</details>
+
+<details>
+<summary>ft_putendl_fd</summary>
+
+- Escribe una cadena seguida de un salto de línea en el `FD`.
+- Write a string followed by a line break in the `FD`.
+</details>
+
+<details>
+<summary>ft_putnbr_fd</summary>
+
+- Escribe un número entero en el `FD` dado.
+- Enter an integer in the given `FD`.
+</details>
+
 ### 🔵 Bonus: Linked Lists
 
 | Function      | Description     |
@@ -308,6 +389,7 @@ Se utilizaron herramientas de IA (ChatGPT/Gemini) como recurso de aprendizaje y 
 Linked lists in C: https://www.geeksforgeeks.org/linked-list-set-1-introduction/
 
 File Descriptors explained: https://en.wikipedia.org/wiki/File_descriptor
+
 
 
 
