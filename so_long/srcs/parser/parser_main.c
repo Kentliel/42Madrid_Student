@@ -6,7 +6,7 @@
 /*   By: kcarrero <kcarrero@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 19:05:53 by kcarrero          #+#    #+#             */
-/*   Updated: 2025/12/15 13:25:50 by kcarrero         ###   ########.fr       */
+/*   Updated: 2026/03/21 15:35:38 by kcarrero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,11 @@ int	ft_parse_map(const char *path, t_map *map)
 	if (!ft_setup_map_grid(path, map))
 		return (0);
 	if (!ft_check_basic(map))
+	{
+		ft_free_map(map);
+		return (0);
+	}
+	if (!ft_check_path_valid(map))
 	{
 		ft_free_map(map);
 		return (0);
