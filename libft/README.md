@@ -295,6 +295,71 @@ make fclean
 | ------------- |:-------------:|
 | structure `t_list`      | `ft_lstnew`, `ft_lstadd_front`, `ft_lstsize`, `ft_lstlast`, `ft_lstadd_back`, `ft_lstdelone`, `ft_lstclear`, `ft_lstiter`, `ft_lstmap`     |
 
+#### Listas Enlazadas (`t_list`)
+
+<details>
+<summary>ft_lstnew</summary>
+
+- Crea un nuevo nodo de lista.
+- Create a new list node.
+</details>
+
+<details>
+<summary>ft_lstadd_front</summary>
+
+- Añade un nodo al principio de la lista.
+- Create a new list node.
+</details>
+
+<details>
+<summary>ft_lstsize</summary>
+
+- Cuenta el número de nodos en la lista.
+- Count the number of nodes in the list.
+</details>
+
+<details>
+<summary>ft_lstlast</summary>
+
+- Devuelve el último nodo de la lista.
+- Returns the last node in the list.
+</details>
+
+<details>
+<summary>ft_lstadd_back</summary>
+
+- Añade un nodo al final de la lista.
+- Add a node to the end of the list.
+</details>
+
+<details>
+<summary>ft_lstdelone</summary>
+
+- Elimina un nodo liberando su contenido.
+- Deletes a node by clearing its contents.
+</details>
+
+<details>
+<summary>ft_lstclear</summary>
+
+- Elimina y libera toda una lista.
+- Delete and clear the entire list.
+</details>
+
+<details>
+<summary>ft_lstiter</summary>
+
+- Itera la lista aplicando una función al contenido de cada nodo.
+- Iterate through the list by applying a function to the content of each node.
+</details>
+
+<details>
+<summary>ft_lstmap</summary>
+
+- Crea una nueva lista aplicando una función a cada nodo de la original.
+- Create a new list by applying a function to each element of the original list.
+</details>
+
 ## Resources / Recursos
 
 * C Programming & Data Structures
@@ -389,6 +454,7 @@ Se utilizaron herramientas de IA (ChatGPT/Gemini) como recurso de aprendizaje y 
 Linked lists in C: https://www.geeksforgeeks.org/linked-list-set-1-introduction/
 
 File Descriptors explained: https://en.wikipedia.org/wiki/File_descriptor
+
 
 
 
