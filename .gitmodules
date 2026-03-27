@@ -1,0 +1,3 @@
+[submodule "privado"]
+	path = privado
+	url = git@github.com:Kentliel/42_Private.git
