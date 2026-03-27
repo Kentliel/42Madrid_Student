@@ -1,7 +1,7 @@
 # Libft
-Este proyecto ha sido creado como parte del currículo de 42 por kcarrero
+Este proyecto ha sido creado como parte del currículo de 42 por kcarrero 👨‍💻
 
-## Description / Descripción
+## 📌 Description / Descripción
 
 Libft is the first project at 42. Its goal is to create a static library containing a collection of re-implemented standard C functions, as well as additional functions that will be useful throughout the entire curriculum.
 Understanding how these functions work under the hood is crucial for mastering memory management and data manipulation in C. This library serves as the foundation for all subsequent projects.
@@ -9,7 +9,7 @@ Understanding how these functions work under the hood is crucial for mastering m
 Libft es el primer proyecto de 42. Su objetivo es crear una librería estática que contiene una colección de funciones estándar de C re-implementadas, así como funciones adicionales que serán útiles a lo largo de todo el currículo.
 Comprender cómo funcionan estas funciones internamente es crucial para dominar la gestión de memoria y la manipulación de datos en C. Esta librería sirve como base para todos los proyectos posteriores.
 
-## Instructions / Instrucciones
+## ▶️ Instructions / Instrucciones
 
 To compile the library (libft.a) / Para compilar la librería (libft.a):
 
@@ -47,7 +47,7 @@ make fclean
 ```
 ---
 
-## Functions / Funciones
+## 🎯 Functions / Funciones
 
 ### 🟢 Part 1: Libc Functions (Standard)
 
@@ -360,7 +360,7 @@ make fclean
 - Create a new list by applying a function to each element of the original list.
 </details>
 
-## Resources / Recursos
+## 📚 Resources / Recursos
 
 * C Programming & Data Structures
 * Dynamic Memory Allocation:
@@ -426,7 +426,7 @@ Linked Lists:
 
 * Static Libraries: Understanding `ar rcs` and indexing.
 
-## Use of Artificial Intelligence / Uso de Inteligencia Artificial
+## 🤖 Use of Artificial Intelligence / Uso de Inteligencia Artificial
 
 AI tools (ChatGPT/Gemini) were used as a learning and assistance resource during the development of this project. Specifically, AI was used to:
 
@@ -449,7 +449,7 @@ Se utilizaron herramientas de IA (ChatGPT/Gemini) como recurso de aprendizaje y 
 
 **Toda la implementación final y la comprensión del código fueron realizadas por el autor.**
 
-## Extras
+## 📦 Extras
 
 Linked lists in C: https://www.geeksforgeeks.org/linked-list-set-1-introduction/
 
