@@ -15,9 +15,9 @@ typedef struct s_philo
 	int				left_fork;
 	int				right_fork;
 	int				meals_eaten;
-	long			last_meal;
+	long			last_meal; // Ultima vez que empezo a comer
 	pthread_t		thread;
-	pthread_mutex_t	meal_mutex;
+	pthread_mutex_t	meal_mutex; // protege a last_meal y meals_eaten
 	t_table			*table;
 }	t_philo;
 
@@ -30,9 +30,9 @@ typedef struct s_table
 	int				must_eat_count;
 	int				simulation_end;
 	long			start_time;
-	pthread_mutex_t	*forks;
-	pthread_mutex_t	print_mutex;
-	pthread_mutex_t	state_mutex;
+	pthread_mutex_t	*forks; // el array de mutexes, uno por tenedor
+	pthread_mutex_t	print_mutex; // evita logs mezclados
+	pthread_mutex_t	state_mutex; // protege simulation_end
 	t_philo			*philo;
 }	t_table;
 
