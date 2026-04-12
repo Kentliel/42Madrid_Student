@@ -1,0 +1,76 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parse.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kcarrero <kcarrero@student.42madrid.com>   +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/04/12 14:35:37 by kcarrero          #+#    #+#             */
+/*   Updated: 2026/04/12 15:19:27 by kcarrero         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "philo.h"
+
+static int	is_digit_str(const char *str)
+{
+	int	i;
+
+	i = 0;
+	if (!str || !str[0])
+		return (0);
+	while (str[i])
+	{
+		if (str[i] < '0' || str[i] > '9')
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
+int	ft_atoi_positive(const char *str, long *result)
+{
+	long	num;
+	int		i;
+
+	if (!is_digit_str(str))
+		return (1);
+	num = 0;
+	i = 0;
+	while (str[i])
+	{
+		num = (num * 10) + (str[i] - '0');
+		if (num > 2147483647)
+			return (1);
+		i++;
+	}
+	*result = num;
+	return (0);
+}
+
+int	parse_args(t_table *table, int ac, char **av)
+{
+	long	value;
+
+	if (ac != 5 && ac != 6)
+		return (printf("Error: wrong number of argumentes\n"), 1);
+	if (ft_atoi_positive(av[1], &value) != 0 || value <= 0)
+		return (printf("Error: invalid number_of_philosophers\n"), 1);
+	table->nb_philos = (int)value;
+	if (ft_atoi_positive(av[2], &table->time_to_die) != 0
+		|| table->time_to_die <= 0)
+		return (printf("Error: invalid time_to_die\n"), 1);
+	if (ft_atoi_positive(av[3], &table->time_to_eat) != 0
+		|| table->time_to_eat <= 0)
+		return (printf("Error: invalid time_to_eat\n"), 1);
+	if (ft_atoi_positive(av[4], &table->time_to_sleep) != 0
+		|| table->time_to_sleep <= 0)
+		return (printf("Error: invalid time_to_sleep"), 1);
+	if (ac == 6)
+	{
+		if (ft_atoi_postive(av[5], &value) != 0 || value <= 0)
+			return (printf("Error: invalid must_eat_count\n"), 1);
+		table->must_eat_count = (int)value;
+	}
+	return (0);
+}
