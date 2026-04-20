@@ -6,41 +6,51 @@
 /*   By: kcarrero <kcarrero@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/19 14:42:52 by kcarrero          #+#    #+#             */
-/*   Updated: 2026/04/19 15:03:06 by kcarrero         ###   ########.fr       */
+/*   Updated: 2026/04/20 13:33:00 by kcarrero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-static void	lock_forks_in_order(t_philo *philo)
+static int	lock_forks_in_order(t_philo *philo)
 {
+	int	first;
+	int	second;
+
+	first = philo->left_fork;
 	if (philo->id % 2 == 0)
+		first = philo->right_fork;
+	second = philo->left_fork + philo->right_fork - first;
+	pthread_mutex_lock(&philo->table->forks[first]);
+	if (simulation_finished(philo->table))
 	{
-		pthread_mutex_lock(&philo->table->forks[philo->right_fork]);
-		print_status(philo, "has taken a fork");
-		pthread_mutex_lock(&philo->table->forks[philo->left_fork]);
-		print_status(philo, "has taken a fork");
+		pthread_mutex_unlock(&philo->table->forks[first]);
+		return (1);
 	}
-	else
+	print_status(philo, "has taken a fork");
+	pthread_mutex_lock(&philo->table->forks[second]);
+	if (simulation_finished(philo->table))
 	{
-		pthread_mutex_lock(&philo->table->forks[philo->left_fork]);
-		print_status(philo, "has taken a fork");
-		pthread_mutex_lock(&philo->table->forks[philo->right_fork]);
-		print_status(philo, "has taken a fork");
+		pthread_mutex_unlock(&philo->table->forks[second]);
+		pthread_mutex_unlock(&philo->table->forks[first]);
+		return (1);
 	}
+	print_status(philo, "has taken a fork");
+	return (0);
 }
 
 int	take_forks(t_philo *philo)
 {
 	if (philo->table->nb_philos == 1)
 	{
-		ptread_mutex_lock(&philo->table->forks[philo->left_fork]);
+		pthread_mutex_lock(&philo->table->forks[philo->left_fork]);
 		print_status(philo, "has taken a fork");
 		precise_sleep(philo->table, philo->table->time_to_die);
 		pthread_mutex_unlock(&philo->table->forks[philo->left_fork]);
 		return (1);
 	}
-	lock_forks_in_order(philo);
+	if (lock_forks_in_order(philo))
+		return (1);
 	return (0);
 }
 

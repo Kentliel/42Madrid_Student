@@ -6,13 +6,13 @@
 /*   By: kcarrero <kcarrero@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/12 15:36:13 by kcarrero          #+#    #+#             */
-/*   Updated: 2026/04/12 15:51:57 by kcarrero         ###   ########.fr       */
+/*   Updated: 2026/04/20 11:58:48 by kcarrero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-static int	intit_forks(t_table *table)
+static int	init_forks(t_table *table)
 {
 	int	i;
 
@@ -37,8 +37,8 @@ int	init_table(t_table *table)
 		return (1);
 	if (init_forks(table) != 0)
 		return (1);
-	table->philos = malloc(sizeof(t_philo) * table->nb_philos);
-	if (!table->philos)
+	table->philo = malloc(sizeof(t_philo) * table->nb_philos);
+	if (!table->philo)
 		return (1);
 	return (0);
 }
@@ -50,13 +50,13 @@ int	init_philos(t_table *table)
 	i = 0;
 	while (i < table->nb_philos)
 	{
-		table->philos[i].id = i + 1;
-		table->philos[i].left_fork = i;
-		table->philos[i].right_fork = (i + 1) % table->nb_philos;
-		table->philos[i].meals_eaten = 0;
-		table->philos[i].last_meal = 0;
-		table->philos[i].table = table;
-		if (pthread_mutex_init(&table->philos[i].meal_mutex, NULL) != 0)
+		table->philo[i].id = i + 1;
+		table->philo[i].left_fork = i;
+		table->philo[i].right_fork = (i + 1) % table->nb_philos;
+		table->philo[i].meals_eaten = 0;
+		table->philo[i].last_meal = 0;
+		table->philo[i].table = table;
+		if (pthread_mutex_init(&table->philo[i].meal_mutex, NULL) != 0)
 			return (1);
 		i++;
 	}

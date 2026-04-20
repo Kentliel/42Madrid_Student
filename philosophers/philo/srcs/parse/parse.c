@@ -6,7 +6,7 @@
 /*   By: kcarrero <kcarrero@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/12 14:35:37 by kcarrero          #+#    #+#             */
-/*   Updated: 2026/04/12 15:19:27 by kcarrero         ###   ########.fr       */
+/*   Updated: 2026/04/20 12:05:34 by kcarrero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ int	parse_args(t_table *table, int ac, char **av)
 		return (printf("Error: invalid time_to_sleep"), 1);
 	if (ac == 6)
 	{
-		if (ft_atoi_postive(av[5], &value) != 0 || value <= 0)
+		if (ft_atoi_positive(av[5], &value) != 0 || value <= 0)
 			return (printf("Error: invalid must_eat_count\n"), 1);
 		table->must_eat_count = (int)value;
 	}

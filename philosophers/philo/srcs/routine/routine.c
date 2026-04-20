@@ -6,7 +6,7 @@
 /*   By: kcarrero <kcarrero@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/19 15:03:38 by kcarrero          #+#    #+#             */
-/*   Updated: 2026/04/19 15:09:59 by kcarrero         ###   ########.fr       */
+/*   Updated: 2026/04/20 12:41:35 by kcarrero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	*philo_routine(void *arg)
 
 	philo = (t_philo *)arg;
 	pthread_mutex_lock(&philo->meal_mutex);
-	philo->last_meal = philo->table->start_time;
+	philo->last_meal = get_time_ms();
 	pthread_mutex_unlock(&philo->meal_mutex);
 	if (philo->id % 2 == 0)
 		usleep(1000);

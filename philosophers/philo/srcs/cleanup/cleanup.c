@@ -6,7 +6,7 @@
 /*   By: kcarrero <kcarrero@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/19 15:42:46 by kcarrero          #+#    #+#             */
-/*   Updated: 2026/04/19 15:48:35 by kcarrero         ###   ########.fr       */
+/*   Updated: 2026/04/20 11:56:17 by kcarrero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,15 @@ void	destroy_all(t_table *table)
 {
 	int	i;
 
-	if (table->philos)
+	if (table->philo)
 	{
 		i = 0;
 		while (i < table->nb_philos)
 		{
-			pthread_mutex_destroy(&table->philos[i].meal_mutex);
+			pthread_mutex_destroy(&table->philo[i].meal_mutex);
 			i++;
 		}
-		free(table->philos);
+		free(table->philo);
 	}
 	if (table->forks)
 	{

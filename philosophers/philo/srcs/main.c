@@ -6,7 +6,7 @@
 /*   By: kcarrero <kcarrero@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/12 14:28:18 by kcarrero          #+#    #+#             */
-/*   Updated: 2026/04/12 15:15:40 by kcarrero         ###   ########.fr       */
+/*   Updated: 2026/04/20 11:54:58 by kcarrero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	init_defaults(t_table *table)
 {
-	table->nb_philo = 0;
+	table->nb_philos = 0;
 	table->time_to_die = 0;
 	table->time_to_eat = 0;
 	table->time_to_sleep = 0;
@@ -22,7 +22,7 @@ static void	init_defaults(t_table *table)
 	table->simulation_end = 0;
 	table->start_time = 0;
 	table->forks = NULL;
-	table->philos = NULL;
+	table->philo = NULL;
 }
 
 int	main(int ac, char **av)
@@ -34,7 +34,7 @@ int	main(int ac, char **av)
 		return (1);
 	if (init_table(&table) != 0)
 		return (1);
-	if (init_philo(&table) != 0)
+	if (init_philos(&table) != 0)
 	{
 		destroy_all(&table);
 		return (1);
