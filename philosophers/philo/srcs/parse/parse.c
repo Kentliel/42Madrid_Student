@@ -6,12 +6,14 @@
 /*   By: kcarrero <kcarrero@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/12 14:35:37 by kcarrero          #+#    #+#             */
-/*   Updated: 2026/04/20 12:05:34 by kcarrero         ###   ########.fr       */
+/*   Updated: 2026/04/27 15:10:03 by kcarrero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
+/*Comprueba que la cadena contiene solo digitos y no esta vacia
+ * devuelve 1 si es valida, 0 en caso contrario*/
 static int	is_digit_str(const char *str)
 {
 	int	i;
@@ -28,6 +30,10 @@ static int	is_digit_str(const char *str)
 	return (1);
 }
 
+/*COnvierte una cadena decimal positica a long
+ * comprueba que la cadena sea numerica y que no supere INT_MAX
+ * Escribe el resultado en *result
+ * Devuelve 0 si Ok, 1 en caso de error*/
 int	ft_atoi_positive(const char *str, long *result)
 {
 	long	num;
@@ -48,6 +54,10 @@ int	ft_atoi_positive(const char *str, long *result)
 	return (0);
 }
 
+/*Valida y asigna los argumentos de linea de comandos a la tabla
+ * formato esperado: nb_philos time_to_die time_to_eat time_to_sleep
+ * opcional: must_eat_count
+ * devuelve 0 si OK, 1 en caso de error*/
 int	parse_args(t_table *table, int ac, char **av)
 {
 	long	value;
