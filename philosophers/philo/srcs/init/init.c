@@ -6,12 +6,14 @@
 /*   By: kcarrero <kcarrero@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/12 15:36:13 by kcarrero          #+#    #+#             */
-/*   Updated: 2026/04/20 11:58:48 by kcarrero         ###   ########.fr       */
+/*   Updated: 2026/04/27 14:58:05 by kcarrero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
+/*Reserva e inicializa los mutex de los tenedores
+ * devuelve 0 si todo Ok, 1 en caso de error*/
 static int	init_forks(t_table *table)
 {
 	int	i;
@@ -29,6 +31,8 @@ static int	init_forks(t_table *table)
 	return (0);
 }
 
+/*Inicializa mutexes globales y crea el array de filosofos
+ * devuelve 0 si todo ok, 1 en caso de fallo*/
 int	init_table(t_table *table)
 {
 	if (pthread_mutex_init(&table->print_mutex, NULL) != 0)
@@ -43,6 +47,8 @@ int	init_table(t_table *table)
 	return (0);
 }
 
+/*Inicializa cada filosofo: id, tenedores, contadores y mutex de comida
+ * devuelve 0 si todo OK, si falla la inicializacion de algun mutex*/
 int	init_philos(t_table *table)
 {
 	int	i;
