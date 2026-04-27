@@ -6,12 +6,15 @@
 /*   By: kcarrero <kcarrero@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/19 15:03:38 by kcarrero          #+#    #+#             */
-/*   Updated: 2026/04/20 12:41:35 by kcarrero         ###   ########.fr       */
+/*   Updated: 2026/04/27 15:12:46 by kcarrero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
+/*Rutina principal de cada hilo filosofo
+ * Inicializa last_meal, aplica retardo inicial para pares y ejecuta el ciclo
+ * comer-dormir-pensar hasta finalizar*/
 void	*philo_routine(void *arg)
 {
 	t_philo	*philo;
