@@ -6,12 +6,14 @@
 /*   By: kcarrero <kcarrero@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/19 15:10:22 by kcarrero          #+#    #+#             */
-/*   Updated: 2026/04/20 13:01:04 by kcarrero         ###   ########.fr       */
+/*   Updated: 2026/04/27 15:04:52 by kcarrero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
+/*Comprueba si un filosofo ha superado time_to_die desde su ultima comida
+ * devuelve 1 si murio, 0 en caso contrario*/
 static int	philo_died(t_philo *philo)
 {
 	long	last_meal;
@@ -26,6 +28,8 @@ static int	philo_died(t_philo *philo)
 	return (0);
 }
 
+/*Imprime el mensaje de muerte y marca la simulacion como terminada
+ * devuelve 1 siempre que se detecte o intente marcar el fin*/
 static int	print_death_and_end(t_table *table, int i)
 {
 	int	already_end;
@@ -44,6 +48,8 @@ static int	print_death_and_end(t_table *table, int i)
 	return (1);
 }
 
+/*Comprueba si todos los filosofos han comido al menos must_eat_count veces
+ * devuelve 1 si todos cumplieron, 0 si no o si must_eat_count == -1*/
 int	all_ate_enough(t_table *table)
 {
 	int	i;
@@ -64,6 +70,8 @@ int	all_ate_enough(t_table *table)
 	return (1);
 }
 
+/*Bucle que vigila la simulacion: detecta muertes y comprueba condicion de fin
+ * devuelve 0 en finalizacion normal, 1 si detecta muerte*/
 int	monitor_loop(t_table *table)
 {
 	int	i;
@@ -87,6 +95,8 @@ int	monitor_loop(t_table *table)
 	return (0);
 }
 
+/*Inicializa tiempos y lanza hilos de filosofos, luegos ejecuta el monitor
+ * devuelve 0 si todo OK, 1 si falla la creacion de algun hilo*/
 int	start_simulation(t_table *table)
 {
 	int	i;
