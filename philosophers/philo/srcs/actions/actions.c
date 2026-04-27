@@ -6,12 +6,14 @@
 /*   By: kcarrero <kcarrero@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/19 14:42:52 by kcarrero          #+#    #+#             */
-/*   Updated: 2026/04/20 13:33:00 by kcarrero         ###   ########.fr       */
+/*   Updated: 2026/04/27 14:42:04 by kcarrero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
+/*bloque dos tenedores en un orden que evita deadlock
+ * devuelve 0 si el bloqueo ambos tenedores, 1 termina la simulacion*/
 static int	lock_forks_in_order(t_philo *philo)
 {
 	int	first;
@@ -39,6 +41,9 @@ static int	lock_forks_in_order(t_philo *philo)
 	return (0);
 }
 
+/*Gestiona la accion de tomar tenedores
+ * caso de nb_philos == 1: code el unico tenedor y espera hata time_to_die
+ * devuelve 0 si consiguio tenedores, 1 si no puede comer o simulacion acabo*/
 int	take_forks(t_philo *philo)
 {
 	if (philo->table->nb_philos == 1)
@@ -54,6 +59,8 @@ int	take_forks(t_philo *philo)
 	return (0);
 }
 
+/*Actualiza el estado de la comida, simula el tiempo de comer y libera tenedor
+ * Protege last_meal y meals_eaten con meal_mutex*/
 void	eat_action(t_philo *philo)
 {
 	pthread_mutex_lock(&philo->meal_mutex);
@@ -66,12 +73,14 @@ void	eat_action(t_philo *philo)
 	pthread_mutex_unlock(&philo->table->forks[philo->right_fork]);
 }
 
+/*Imprime estado y duerme el tiempo configurado*/
 void	sleep_action(t_philo *philo)
 {
 	print_status(philo, "is sleeping");
 	precise_sleep(philo->table, philo->table->time_to_sleep);
 }
 
+/*Imprime que el filosofo esta pensando*/
 void	think_action(t_philo *philo)
 {
 	print_status(philo, "is thinking");
