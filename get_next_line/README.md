@@ -1,8 +1,8 @@
 *Este proyecto ha sido creado como parte del currículo de 42 por kcarrero.*
 
-# get_next_line
+📖 # get_next_line
 
-## Descripción
+📝 ## Descripción
 
 `get_next_line` es un proyecto de programación en C cuyo objetivo es implementar una función capaz de leer y devolver, en cada llamada, la siguiente línea disponible desde un descriptor de archivo.
 
@@ -26,7 +26,7 @@ El proyecto permite practicar conceptos fundamentales de programación en C:
 
 La carpeta `bonus` incluye una versión capaz de conservar una caché independiente para varios descriptores de archivo y, por tanto, permite alternar la lectura de varios archivos sin perder el estado de ninguno.
 
-## Características
+✨ ## Características
 
 - Lectura de una línea por llamada.
 - Compatibilidad con distintos valores de `BUFFER_SIZE`.
@@ -36,7 +36,7 @@ La carpeta `bonus` incluye una versión capaz de conservar una caché independie
 - Liberación de la memoria intermedia cuando deja de ser necesaria.
 - Versión bonus compatible con múltiples descriptores de archivo.
 
-## Estructura del proyecto
+🗂️ ## Estructura del proyecto
 
 ```text
 get_next_line/
@@ -59,9 +59,9 @@ get_next_line/
 
 Los archivos `main.c` y los archivos de texto se utilizan únicamente para realizar pruebas. No forman parte de la función que debe entregarse como implementación del proyecto.
 
-## Algoritmo seleccionado
+🧠 ## Algoritmo seleccionado
 
-### Idea general
+💡 ### Idea general
 
 La implementación utiliza un algoritmo de **lectura incremental con caché persistente**.
 
@@ -74,7 +74,7 @@ El algoritmo se divide en cuatro fases principales:
 3. Extraer de la caché la siguiente línea.
 4. Conservar el contenido sobrante para la siguiente llamada.
 
-### 1. Validación inicial
+✅ ### 1. Validación inicial
 
 `get_next_line` comprueba que:
 
@@ -84,7 +84,7 @@ El algoritmo se divide en cuatro fases principales:
 
 Si alguna condición no se cumple, la función devuelve `NULL`.
 
-### 2. Lectura y construcción de la caché
+📥 ### 2. Lectura y construcción de la caché
 
 La función auxiliar `ft_read_and_cache` comprueba si la caché ya contiene un salto de línea.
 
@@ -101,7 +101,7 @@ Cuando `read` devuelve `0`, se ha alcanzado el final del archivo. En ese caso, l
 
 Si `read` devuelve un valor negativo, se considera un error de lectura y se libera la memoria asociada.
 
-### 3. Extracción de la línea
+✂️ ### 3. Extracción de la línea
 
 `ft_extract_line` recorre la caché desde el principio hasta encontrar:
 
@@ -121,7 +121,7 @@ Línea devuelta: "Primera línea\n"
 
 La memoria de la línea pertenece a quien llama a `get_next_line`, por lo que debe liberarse con `free`.
 
-### 4. Actualización de la caché
+🔄 ### 4. Actualización de la caché
 
 Después de extraer la línea, `ft_update_cache` elimina de la caché la parte que ya se ha devuelto.
 
@@ -134,7 +134,7 @@ Nueva caché:    "Segunda línea\n"
 
 Si no queda ningún contenido pendiente, la caché se libera y pasa a ser `NULL`.
 
-### 5. Persistencia entre llamadas
+💾 ### 5. Persistencia entre llamadas
 
 En la parte obligatoria se utiliza una variable estática:
 
@@ -160,7 +160,7 @@ line1 = get_next_line(fd1);
 
 sin mezclar el contenido pendiente de los distintos archivos.
 
-## Justificación del algoritmo
+🎯 ## Justificación del algoritmo
 
 La estrategia de lectura incremental con caché se ha elegido porque responde directamente al comportamiento de `read`.
 
@@ -177,22 +177,22 @@ Esta solución también permite modificar `BUFFER_SIZE` sin cambiar el comportam
 
 La variable estática es adecuada porque evita que el programa que utiliza `get_next_line` tenga que gestionar manualmente el estado interno de la lectura.
 
-## Complejidad
+📊 ## Complejidad
 
 Sea `n` la cantidad de caracteres acumulados para producir una línea.
 
-- **Espacio auxiliar:** `O(n + BUFFER_SIZE)`.
-- **Búsqueda del salto de línea:** `O(n)`.
-- **Extracción de la línea:** `O(n)`.
-- **Actualización de la caché:** `O(n)` en el peor caso.
+- 💾 **Espacio auxiliar:** `O(n + BUFFER_SIZE)`.
+- 🔍 **Búsqueda del salto de línea:** `O(n)`.
+- ✂️ **Extracción de la línea:** `O(n)`.
+- 🔄 **Actualización de la caché:** `O(n)` en el peor caso.
 
 La implementación realiza nuevas reservas y copias al concatenar cada bloque con la caché. Por ello, para líneas muy largas y valores pequeños de `BUFFER_SIZE`, el coste acumulado de las concatenaciones puede aproximarse a `O(n²)`.
 
 En la versión bonus, la memoria total depende de la suma del contenido pendiente en todos los descriptores activos.
 
-## Instrucciones
+🛠️ ## Instrucciones
 
-### Requisitos
+📋 ### Requisitos
 
 Para compilar y probar el proyecto se necesita:
 
@@ -200,14 +200,14 @@ Para compilar y probar el proyecto se necesita:
 - Un compilador de C, como `cc`, `clang` o `gcc`.
 - Las funciones estándar `read`, `malloc` y `free`.
 
-### Descargar el repositorio
+📦 ### Descargar el repositorio
 
 ```bash
 git clone https://github.com/Kentliel/42Madrid_Student.git
 cd 42Madrid_Student/get_next_line
 ```
 
-### Compilar la parte obligatoria
+⚙️ ### Compilar la parte obligatoria
 
 La implementación puede compilarse junto con el archivo de prueba incluido:
 
@@ -221,7 +221,7 @@ cc -Wall -Wextra -Werror \
 	-o gnl
 ```
 
-### Ejecutar la prueba
+▶️ ### Ejecutar la prueba
 
 ```bash
 ./gnl srcs/prueba.txt
@@ -233,7 +233,7 @@ También se puede utilizar cualquier otro archivo:
 ./gnl ruta/al/archivo.txt
 ```
 
-### Probar distintos tamaños de búfer
+🧪 ### Probar distintos tamaños de búfer
 
 ```bash
 cc -Wall -Wextra -Werror -D BUFFER_SIZE=1 \
@@ -251,7 +251,7 @@ cc -Wall -Wextra -Werror -D BUFFER_SIZE=9999 \
 
 El comportamiento funcional debe mantenerse independientemente del tamaño elegido, siempre que `BUFFER_SIZE` sea mayor que cero.
 
-### Compilar la versión bonus
+⭐ ### Compilar la versión bonus
 
 ```bash
 cc -Wall -Wextra -Werror \
@@ -263,7 +263,7 @@ cc -Wall -Wextra -Werror \
 	-o gnl_bonus
 ```
 
-### Ejecutar la versión bonus
+🚀 ### Ejecutar la versión bonus
 
 ```bash
 ./gnl_bonus bonus/archivo1.txt bonus/archivo2.txt
@@ -271,7 +271,7 @@ cc -Wall -Wextra -Werror \
 
 El programa de prueba alterna la lectura de los archivos proporcionados y muestra las líneas obtenidas desde cada descriptor.
 
-### Uso dentro de otro programa
+💻 ### Uso dentro de otro programa
 
 ```c
 #include <fcntl.h>
@@ -309,7 +309,7 @@ cc -Wall -Wextra -Werror \
 	-o programa
 ```
 
-## Makefile
+🏗️ ## Makefile
 
 El `Makefile` incluido está preparado para crear la biblioteca estática `get_next_line.a`, pero actualmente hace referencia a estos nombres:
 
@@ -345,14 +345,14 @@ make fclean
 make re
 ```
 
-## Valor de retorno
+↩️ ## Valor de retorno
 
 `get_next_line` devuelve:
 
-- La siguiente línea leída, incluyendo `\n` cuando existe.
-- La última línea aunque no termine con `\n`.
-- `NULL` cuando se alcanza el final del archivo y no queda contenido pendiente.
-- `NULL` cuando se produce un error de lectura o de reserva de memoria.
+- ✅ La siguiente línea leída, incluyendo `\n` cuando existe.
+- ✅ La última línea aunque no termine con `\n`.
+- 🛑 `NULL` cuando se alcanza el final del archivo y no queda contenido pendiente.
+- ⚠️ `NULL` cuando se produce un error de lectura o de reserva de memoria.
 
 Toda cadena devuelta correctamente debe liberarse:
 
@@ -367,7 +367,7 @@ if (line)
 }
 ```
 
-## Casos de prueba recomendados
+🧪 ## Casos de prueba recomendados
 
 Se recomienda probar la función con:
 
@@ -397,7 +397,7 @@ while (line)
 }
 ```
 
-## Observaciones técnicas
+🔎 ## Observaciones técnicas
 
 - La parte obligatoria conserva una única caché estática y está diseñada para continuar la lectura del descriptor utilizado.
 - La versión bonus utiliza un array de 1024 cachés.
@@ -405,9 +405,9 @@ while (line)
 - Los programas `main.c` son herramientas de prueba y no deben incluirse en la entrega mínima si el subject solicita únicamente los archivos de la función.
 - El ejecutable `srcs/a.out` es un archivo generado y normalmente debería excluirse del repositorio mediante `.gitignore`.
 
-## Recursos
+📚 ## Recursos
 
-### Documentación
+🔗 ### Documentación
 
 - [`read(2)` — Linux manual page](https://man7.org/linux/man-pages/man2/read.2.html): documentación de la llamada al sistema utilizada para leer desde un descriptor.
 - [`open(2)` — Linux manual page](https://man7.org/linux/man-pages/man2/open.2.html): apertura de archivos y obtención de descriptores.
@@ -416,14 +416,20 @@ while (line)
 - [Storage duration — cppreference](https://en.cppreference.com/w/c/language/storage_duration.html): explicación de la duración estática y de las variables que conservan su valor entre llamadas.
 - [File descriptor — The Open Group Base Specifications](https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap03.html): definición de descriptor de archivo en POSIX.
 
-### Uso de inteligencia artificial
+🤖 ### Uso de inteligencia artificial
+
+Como recurso de aprendizaje y asistencia durante el desarrollo de este proyecto. En concreto, la IA se utilizó para:
+
+- Comprender el funcionamiento de conceptos nuevos relacionados con get_next_line, como el uso de variables estáticas, descriptores de archivo, BUFFER_SIZE y la función read.
+- Aclarar el propósito y el comportamiento de funciones concretas de la implementación.
+- Entender cómo gestionar casos especiales, como archivos vacíos, líneas sin salto de línea final, errores de lectura y distintos tamaños de búfer.
+- Analizar el funcionamiento de la versión bonus y el uso de una caché independiente para cada descriptor de archivo.
 
 Para la documentación de este proyecto se ha utilizado inteligencia artificial como apoyo en las siguientes tareas:
 
 - Revisión de la estructura pública del repositorio.
 - Análisis y explicación del algoritmo ya implementado.
-- Organización y redacción de este archivo `README.md`.
 - Identificación de instrucciones de compilación coherentes con los nombres reales de los archivos.
 - Detección de observaciones técnicas relacionadas con el `Makefile` y los límites de los descriptores.
 
-Durante esta revisión, la inteligencia artificial no ha modificado los archivos fuente de la implementación. Las explicaciones generadas se han contrastado con el código existente y deben ser comprendidas y validadas por el autor del proyecto.
+Durante esta revisión, la inteligencia artificial no ha modificado los archivos fuente de la implementación. Toda la implementación final y la comprensión del código fueron realizadas por el autor.
