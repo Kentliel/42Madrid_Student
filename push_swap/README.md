@@ -597,7 +597,9 @@ man 3 free
 man 2 write
 ```
 
-# Extras
+---
+
+## Extras
 
 **Linked lists**
 * https://www.tutorialesprogramacionya.com/estructurasdedatos/listasenlazadasc/tema8.html?utm_source=copilot.com
@@ -608,7 +610,9 @@ man 2 write
 **Chunk**
 * https://deepwiki.com/nach131/push_swap/4.3-chunk-based-sorting?utm_source=copilot.com
 
-### 🤖 Uso de inteligencia artificial
+---
+
+## 🤖 Uso de inteligencia artificial
 
 La inteligencia artificial se utilizó como **herramienta de apoyo al aprendizaje, análisis y documentación**, concretamente para:
 
